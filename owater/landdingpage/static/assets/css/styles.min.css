@@ -8987,7 +8987,9 @@ header.sticky {
 .logo {
     max-width: 70px
 }
-
+.logo img {
+    max-height: 40px;
+}
 .user {
     display: inline-block
 }
@@ -9004,12 +9006,10 @@ header.sticky {
 }
 
 .cart {
-    text-align: right;
+    text-align: center;
     display: inline-block;
-    color: #000;
-    font-weight: bold;
+    /* font-weight: bold; */
     position: relative;
-    margin-bottom: 15px
 }
 
 .cart img {
@@ -9018,7 +9018,7 @@ header.sticky {
 }
 
 .cart i {
-    font-size: 20px
+    font-size: 15px
 }
 
 .cart .num-cart {
@@ -9033,22 +9033,23 @@ header.sticky {
     text-align: center;
     line-height: 15px;
     font-weight: bold;
-    background-color: #f00
+    background-color: #f00;
 }
 
-.cart .text {
+/* .cart .text {
     margin-left: 10px
-}
+} */
 
 .cart .icon-cart {
-    background-color: #eeaab7;
+    background-color: #007bff;
     color: #fff;
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
     line-height: 35px;
     text-align: center;
     display: inline-block;
-    border-radius: 100%
+    border-radius: 100%;
+    /* margin-top: 10px; */
 }
 
 #search {
@@ -9094,10 +9095,19 @@ header.sticky {
     text-align: center;
     padding: 0
 }
+@media (max-width: 600px) {
+    header .logo {
+       max-width: 80px;
+    }
+}
 
-@media (max-width: 991px) {
-    .logo {
-        max-width:80px
+@media ( min-width: 600px) and ( max-width: 991px) {
+    header .logo {
+        position:fixed;
+        z-index: 99;
+        top: 10px;
+        left: 50%;
+        margin-left: -25px
     }
 }
 
@@ -9153,7 +9163,7 @@ header.sticky {
         width: 80%;
         margin-left: 20%;
         list-style: none;
-        position: relative
+        position: relative;
     }
 
     .menu .has-sub {
@@ -9245,14 +9255,15 @@ header.sticky {
     }
 
     .menu li a {
-        color: #222;
+        color: #000;
         font-size: 16px;
         padding: 10px 20px;
         transition: all ease 0.4s;
         display: inline-block;
         position: relative;
         text-transform: uppercase;
-        font-weight: 500
+        font-weight: 700;
+
     }
 
     .menu li a:hover,.menu li a.active {
@@ -9309,7 +9320,7 @@ header.sticky {
         padding: 10px 20px;
         display: block;
         padding-right: 25px;
-        color: #333;
+        color: #fff !;
         font-size: 13px
     }
 
@@ -9476,42 +9487,42 @@ header.sticky {
 }
 
 .btn-style1 {
-    background-color: #eeaab7;
-    border-color: #eeaab7;
+    background-color: #5aabff;
+    border-color: #5aabff;
     color: #fff
 }
 
 .btn-style1:hover {
-    background-color: #ea95a5;
-    border-color: #ea95a5;
+    background-color: #5aabff;
+    border-color: #5aabff;
     color: #fff
 }
 
 .btn-style2 {
-    border: 1px solid #d81d49;
+    border: 1px solid #5aabff;
     background: #d81d49;
     color: #fff;
-    border-color: #d81d49
+    border-color: #5aabff
 }
 
 .btn-style2:hover {
-    background: #eeaab7;
+    background: #5aabff;
     color: #fff;
-    border-color: #eeaab7
+    border-color: #5aabff
 }
 
 .btn-style3 {
     background-color: transparent;
-    border: 2px solid #d81d49;
-    color: #d81d49
+    border: 2px solid #5aabff;
+    color: #5aabff
 }
 
 .btn-style3 a {
-    color: #d81d49
+    color: #5aabff
 }
 
 .btn-style3:hover {
-    background: #eeaab7;
+    background: #5aabff;
     color: #fff
 }
 
@@ -10111,10 +10122,20 @@ footer a:hover {
     }
 
     .wrap-product {
-        background: radial-gradient(white, #eeaab7);
-        position: relative
+        background: radial-gradient(white, #5aabff);
+        position: relative;
+    }
+    /* Thêm hiệu ứng phóng to khi sản phẩm được chọn */
+    .wrap-product .swiper-slide {
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
+        opacity: 0.5 !important; /* Làm mờ slide không được chọn */
     }
 
+    /* Slide đang được chọn */
+    .wrap-product .swiper-slide-thumb-active {
+        transform: scale(1.2) !important; /* Phóng to slide */
+        opacity: 1 !important; /* Hiển thị rõ */
+    }
     .wrap-product .swiper-product .swiper-wrapper {
         align-items: end
     }
@@ -10144,7 +10165,8 @@ footer a:hover {
         width: 35%;
         padding: 25px 50px;
         background-color: rgba(255,255,255,0.9);
-        text-align: center
+        text-align: center;
+        height: fit-content;
     }
 
     .wrap-product .active-product-info .name {

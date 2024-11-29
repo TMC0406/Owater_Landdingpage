@@ -1,6 +1,4 @@
 $(function () {
-
-
     window.onscroll = function () { fun_fix_header() };
     var header = document.getElementById("header");
     var sticky = header.offsetTop;
