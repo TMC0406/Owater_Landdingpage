@@ -6,9 +6,9 @@ $(function () {
     // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function fun_fix_header() {
         if (window.pageYOffset > sticky) {
-            header.classList.add("sticky");
+            header.classList.add("sticky-header");
         } else {
-            header.classList.remove("sticky");
+            header.classList.remove("sticky-header");
         }
     }
 
@@ -32,7 +32,7 @@ $(function () {
         $(this).find('.nav-icon').toggleClass('active');
         $(".wrap-menu").toggleClass('active');
         $('body').toggleClass('expand-menu');
-        header.classList.remove("sticky");
+        header.classList.remove("sticky-header");
     });
     $('.wrap-menu').click(function () {
         $(this).toggleClass('active');

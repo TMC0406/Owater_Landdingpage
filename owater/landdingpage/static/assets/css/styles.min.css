@@ -8950,14 +8950,15 @@ table th,table td {
 }
 
 .swiper-button-next,.swiper-button-prev {
-    color: #000 !important;
-    background: #d81d49;
-    border-radius: 5px
+    /* color: #white !important; */
+    /* background: #d81d49;
+    border-radius: 5px */
+    font-size: 2rem;
 }
 
-.swiper-button-next:after,.swiper-button-prev:after {
+/* .swiper-button-next:after,.swiper-button-prev:after {
     font-size: 20px !important
-}
+} */
 
 .swiper-pagination-bullet-active {
     background-color: #000 !important
@@ -8979,7 +8980,7 @@ header {
     border-bottom: 1px solid rgba(68,68,68,0.1)
 }
 
-header.sticky {
+header.sticky-header {
     background: #fff;
     box-shadow: 0 0 5px rgba(34,34,34,0.3)
 }
@@ -10125,17 +10126,7 @@ footer a:hover {
         background: radial-gradient(white, #5aabff);
         position: relative;
     }
-    /* Thêm hiệu ứng phóng to khi sản phẩm được chọn */
-    .wrap-product .swiper-slide {
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
-        opacity: 0.5 !important; /* Làm mờ slide không được chọn */
-    }
 
-    /* Slide đang được chọn */
-    .wrap-product .swiper-slide-thumb-active {
-        transform: scale(1.2) !important; /* Phóng to slide */
-        opacity: 1 !important; /* Hiển thị rõ */
-    }
     .wrap-product .swiper-product .swiper-wrapper {
         align-items: end
     }
@@ -10157,18 +10148,21 @@ footer a:hover {
     }
 
     .wrap-product .active-product-info {
-        position: absolute;
+        /* position: absolute; */
         z-index: 3;
         left: 40px;
         top: 50px;
         bottom: 50px;
-        width: 35%;
-        padding: 25px 50px;
+        padding: 25px ;
         background-color: rgba(255,255,255,0.9);
         text-align: center;
         height: fit-content;
     }
-
+    .swiper-swiper-product {
+        transition-duration: 0ms;
+        transition-delay: 0ms;
+        transform: translate3d(277.25px, 0px, 0px);
+    }
     .wrap-product .active-product-info .name {
         text-transform: uppercase;
         font-weight: 700
@@ -10613,7 +10607,7 @@ footer a:hover {
     z-index: 10
 }
 
-.policy-product .light-pink {
+.policy-product .light-blue {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -10622,18 +10616,18 @@ footer a:hover {
     justify-content: space-between
 }
 
-.policy-product .light-pink li {
-    background-color: #eeaab7;
+.policy-product .light-blue li {
+    background-color: #007bff;
     padding: 10px;
     text-align: center;
     flex: 0 0 50%;
     max-width: 50%;
     border: 2px solid #fff;
-    color: #555;
+    color: #fff;
     font-weight: 400
 }
 
-.policy-product .light-pink li span {
+.policy-product .light-blue li span {
     display: block;
     font-size: 30px;
     margin-top: 10px
@@ -11158,6 +11152,9 @@ footer a:hover {
     }
 
     .coccoc-hotline {
+        display: none
+    }
+    .swiper-product-lg{
         display: none
     }
 }
