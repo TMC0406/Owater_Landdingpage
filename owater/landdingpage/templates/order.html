@@ -3,247 +3,97 @@
 {% block main-content %}
 
 <main>
-    <div class="nxPaddingPage">
-        <div class="container">
-        <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="https://evianwater.vn/" rel="nofollow" title="Trang chủ">Trang chủ</a></li>
-         <li class="breadcrumb-item"><strong>Giỏ hàng</strong></li></ol>
-        
-        <div class="row">
-        <div class="col-12">
-        <div class="contact page-partial">
-        <section class="gio-hang">
-        <form action="https://evianwater.vn/order/" method="POST" class="butUpdate" name="frmCart">
-              <div class="container">
-                <div class="row">
-                  <div class="col-12 col-sm-12 col-md-8 pLeft">
-                    <table class="table gio-hang-table">
-                      <thead>
-                        <tr>
-                          <th colspan="3">Sản phẩm</th>
-                          <th class="d-none d-md-block">Giá bán</th>
-                          <th class="txt-noWrap">Số lượng</th>
-                          <th class="d-none d-md-block w-totalamount">Tổng tiền</th>
-                        </tr>
-                      </thead>
-        
-                      <tbody>
-        
-                      <tr>
-                          <td class="pro-remove" valign="middle"><a onclick="window.location='https://evianwater.vn/order/&amp;act=del&amp;pos=0';return false;" title="Xóa" class="link-red"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
-          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
-        </svg></a></td>
-                          <td class="pro-thumnail" valign="middle"><a href="https://evianwater.vn/evian-330ml.htm" title="Evian bình 20L"><img src="https://evianwater.vn/thumb/30/25/library/module_new/evian-chai-nhua-330ml-thung-24-chai_s3436.png" alt="Evian bình 20L"></a></td>
-                          <td class="pro-name" valign="middle">
-                          <a href="https://evianwater.vn/evian-330ml.htm" class="link-black" title="Evian bình 20L">Evian bình 20L</a>
-        </td>
-                          <td class="pro-price hidden-sm" valign="middle">600.000 đ</td>
-                          <td valign="middle"> <div class="qty pro-quantity">
-                                                    <span class="qtyminus input-number-decrement" onclick="var fieldName = $(this).attr('data-field');   var currentVal = parseInt($('input[data-field='+fieldName+']').val());    if (!isNaN(currentVal) &amp;&amp; currentVal > 1) {          
+	<div class="nxPaddingPage">
+		<div class="container">
+			<h1 class="text-center page-title">Giỏ hàng</h1>
+			<div class="row">
+				<div class="col-12">
+					<div class="contact page-partial">
+						<section class="gio-hang">
+							<form action="https://evianwater.vn/order/" method="POST" class="butUpdate" name="frmCart">
+								<div class="container">
+									<div class="row">
+										<div class="col-12 col-sm-12 col-md-8 pLeft">
+											<table class="table gio-hang-table">
+												<thead>
+													<tr>
+														<th colspan="3">Sản phẩm</th>
+														<th class="d-none d-md-block">Giá bán</th>
+														<th class="txt-noWrap">Số lượng</th>
+														<th class="d-none d-md-block w-totalamount">Tổng tiền</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="pro-remove" valign="middle">
+															<a onclick="window.location='https://evianwater.vn/order/&amp;act=del&amp;pos=0';return false;" title="Xóa" class="link-red">
+																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+																	<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+																	<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+																</svg>
+															</a>
+														</td>
+														<td class="pro-thumnail" valign="middle">
+															<a href="https://evianwater.vn/evian-330ml.htm" title="Owarter bình 20L">
+																<img src="https://evianwater.vn/thumb/30/25/library/module_new/evian-chai-nhua-330ml-thung-24-chai_s3436.png" alt="Owarter bình 20L">
+															</a>
+														</td>
+														<td class="pro-name" valign="middle">
+															<a href="https://evianwater.vn/evian-330ml.htm" class="link-black" title="Owarter bình 20L">Owarter bình 20L</a>
+														</td>
+														<td class="pro-price hidden-sm" valign="middle">600.000 đ</td>
+														<td valign="middle">
+															<div class="qty pro-quantity">
+																<span class="qtyminus input-number-decrement" onclick="var fieldName = $(this).attr('data-field');   var currentVal = parseInt($('input[data-field='+fieldName+']').val());    if (!isNaN(currentVal) &amp;&amp; currentVal > 1) {          
                                                         $('input[data-field='+fieldName+']').val(currentVal - 1);    } else {
-                                                        $('input[data-field='+fieldName+']').val(1);    }" data-field="quantity0"> <i class="las la-minus"></i> 
-                                                    </span>
-        
-                                                    <input type="number" class="quantity-detail" data-field="quantity0" name="quantity[]" value="1" min="1">
-        
-        
-                                                    <span class="qtyplus input-number-decrement" onclick="var fieldName = $(this).attr('data-field');     var currentVal = parseInt($('input[data-field='+fieldName+']').val());    if (!isNaN(currentVal)) {         $('input[data-field='+fieldName+']').val(currentVal + 1);    } else {        $('input[data-field='+fieldName+']').val(0);    }" data-field="quantity0"> <i class="las la-plus"></i> </span>
-                                                </div></td>
-                          <td class="pro-price hidden-sm" valign="middle">600.000 đ</td>
-                        </tr>
-                        
-                        <tr>
-                          <td colspan="6">
-                            <a href="https://evianwater.vn/" title="Tiếp tục mua hàng" class="btn-back">Tiếp tục mua hàng</a>
-                            <!--<button type="submit" class="btn-select pull-right" name="butUpdate" value="Cập nhật giỏ hàng">Cập nhật giỏ hàng</button>-->
-                            
-                          </td>
-                        </tr>
-        
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-4 pRigth">
-                    <table class="table gio-hang-table bg-totel-cart">
-                      
-                      <tbody>
-                        
-                        <tr>
-                          <td><strong>Tổng tiền</strong></td>
-                          <td class="link-red text-right"><strong>600.000 đ</strong></td>
-                        </tr>
-                        <tr>
-                          <td colspan="2" class="text-center">
-                          <input class="btn-red" type="submit" name="btnCheckout" value="Đặt hàng">
-                            
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div></form>
-            </section></div>
-        </div>
-        </div>
-        
-        </div>
-        <div>
-        <div>
-        <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-md-5  col-lg-5">
-                          <div>
-            <em style="font-size: 16px;"><span style="color: rgb(255, 0, 0);"><strong><span style="background-color: rgb(255, 255, 0);">- XUẤT SỨ HÀNG HÓA-</span></strong></span></em></div>
-        <div>
-            &nbsp;</div>
-        <div>
-            Sản xuất tại: <strong>S.A. DES EAUX MINERALES D’EVIAN(SAEME)</strong></div>
-        <div>
-            Địa chỉ&nbsp; &nbsp; &nbsp; &nbsp; : <strong>Route des Vignes Rouges Amphion les Barns, 74503EVIAN, France (Pháp)&nbsp;</strong></div>
-        <div>
-            Xuất xứ&nbsp; &nbsp; &nbsp; &nbsp;: <strong>Pháp của tập đoàn DANONE</strong></div>
-        <div>
-            &nbsp;</div>
-        <div>
-            <span style="font-size: 16px;"><em><span style="color: rgb(255, 0, 0);"><strong><span style="background-color: rgb(255, 255, 0);">- ĐỊA CHỈ MUA HÀNG-</span></strong></span></em></span></div>
-        <div>
-            &nbsp;</div>
-        <div>
-            <div>
-                <strong>- 208 Đinh Bộ Lĩnh, Phường 26, Quận Bình Thạnh</strong></div>
-            <div>
-                <strong>- 256/1/24 Dương Quảng Hàm, Phường 05, Quận Gò Vấp</strong></div>
-            <div>
-                <strong>- 20 Bùi Thế Mỹ, Phường 10, Quận Tân Bình</strong></div>
-            <div>
-                <strong>- Lô A39 Đường M3, KDC Kiến Á, Phước Long B, Quận 9</strong></div>
-        </div>
-        <div>
-            &nbsp;</div>
-        <div>
-            ✉ nuockhoangbinhminh@gmail.com</div>
-        <div>
-            ☎ (028).66.811.711</div>
-        <div>
-            ☎ 094.202.1001</div>
-        <div>
-            Công ty TNHH Kinh Doanh Phát Triển Bình Minh</div>
-        <div>
-            &nbsp;</div>
-        <div>
-            <span style="font-size: 16px;"><em><span style="color: rgb(255, 0, 0);"><strong><span style="background-color: rgb(255, 255, 0);">- MIỄN PHÍ GIAO HÀNG TẤT CẢ CÁC QUẬN TPHCM-</span></strong></span></em></span></div>				
-                        </div>
-                        <div class="col-12 col-md-2 col-lg-2">
-                            <p class="foot-title">Menu</p>
-                            <ul class=" foot-list">
-                             <li><a href="https://evianwater.vn/ve-evian-chat-luong-nuoc.htm" title="Về Evian">Về Evian</a></li> <li><a href="https://evianwater.vn/san-pham.htm" title="Sản Phẩm">Sản Phẩm</a></li> <li><a href="https://evianwater.vn/tin-tuc.htm" title="News">News</a></li> <li><a href="https://evianwater.vn/lien-he.htm" title="Liên hệ">Liên hệ</a></li>                    </ul>
-                        </div>
-                        <div class="col-12 col-md-3  col-lg-3">
-            <p class="foot-title"><a href="https://evianwater.vn/chinh-sach.htm" rel="nofollow" title="Chính sách">Chính sách</a></p>
-            <ul class=" foot-list">
-                <li><a href="https://evianwater.vn/chinh-sach-giao-hang.htm" rel="nofollow" title="Chính sách giao hàng">Chính sách giao hàng</a></li><li><a href="https://evianwater.vn/chinh-sach-doi-tra-hang.htm" rel="nofollow" title="Chính sách đổi trả hàng">Chính sách đổi trả hàng</a></li>
-            </ul>
-        </div>				<div class="col-12 col-md-2 col-lg-2">
-                           <ul class="list-inline social"><li class="list-inline-item"><a href="https://www.facebook.com/evianwatervietnam/" title="facebook" rel="noopener nofollow" target="_blank"><i class="lab la-facebook-f"></i></a></li><li class="list-inline-item"><a href="https://evianwater.vn/" title="youtube" rel="noopener nofollow" target="_blank"><i class="lab la-youtube"></i></a></li><li class="list-inline-item"><a href="https://evianwater.vn/" title="twitter" rel="noopener nofollow" target="_blank"><i class="lab la-twitter"></i></a></li></ul>				   <a href="https://evianwater.vn/" rel="nofollow" target="_blank" title="BCT"><img src="https://evianwater.vn/assets/img/dang-ky-bo-cong-thuong-min.png" alt="BCT"></a>                </div>
-                    </div>
-                </div>
-                <div class="copyright">
-                    <div class="container">
-                        <span><i class="las la-copyright mr-2"></i> © 2020 - 2022, Evianwater</span>
-                    </div>
-                </div>
-        </footer>
-        
-                    <a style="color: #fff;display:block" rel="nofollow" href="tel:0942021001" title="0942021001"><div class="coccoc-alo-phone coccoc-alo-green coccoc-alo-show" style="bottom:60px">
-            <div class="coccoc-alo-ph-circle"></div>
-            <div class="coccoc-alo-ph-circle-fill"></div>
-            <div class="coccoc-alo-ph-img-circle"></div>
-            <div class="coccoc-hotline">0942021001</div>
-        </div></a>
-                    <a style="color: #fff;display:block" rel="nofollow" href="tel:02866811711" title="02866811711"><div class="coccoc-alo-phone coccoc-alo-green coccoc-alo-show" style="bottom:150px">
-            <div class="coccoc-alo-ph-circle"></div>
-            <div class="coccoc-alo-ph-circle-fill"></div>
-            <div class="coccoc-alo-ph-img-circle"></div>
-            <div class="coccoc-hotline">02866811711</div>
-        </div></a>
-        <div class="fixed-right">
-        <div class="item "></div>
-        <div class="item d-md-none phone-mobile">
-                        <a href="tel:0942021001" title="094 202 1001" target="_blank" rel="nofollow">
-                            <img src="https://evianwater.vn/assets/img/icon-hotline.png" alt="094 202 1001">
-                            <span>Gọi ngay</span>
-                        </a></div>
-         
-                
-        <div class="item">
-                        <a href="https://zalo.me/0942021001" target="_blank" title="chat 0942021001" rel="nofollow">
-                            <img src="data:image/webp;base64,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" alt="Chat Zalo">
-                            <span>Chat Zalo</span>
-                        </a>
-                    </div>			
-                    
-                    
-        <div class="item">
-                        <a href="https://m.me/" target="_blank" title="chat facebook" rel="nofollow">
-                            <img src="data:image/webp;base64,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" alt="Chat Facebook">
-                            <span>Chat Facebook</span>
-                        </a>
-                    </div>
-        <div class="item">
-        <a id="back-to-top" href="#top" class="back-to-top" title="Đầu trang" rel="nofollow" role="button">
-                            <img src="data:image/webp;base64,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" alt="Quay lên đầu">
-                            <span>Quay lên đầu</span>
-                        </a>
-                    </div>
-        </div>
-                <script src="https://evianwater.vn/assets/js/jquery-2.1.1.min.js"></script>
-        <script src="https://evianwater.vn/assets/js/bootstrap/bootstrap.min.js"></script>
-        <script src="https://evianwater.vn/assets/js/main.js"></script>
-        <link rel="stylesheet" href="https://evianwater.vn/assets/css/coccocalo.css"><script language="JavaScript">
-            window.onload = function() {
-                document.addEventListener("contextmenu", function(e) {
-                    e.preventDefault();
-                }, false);
-                document.addEventListener("keydown", function(e) {
-                    //document.onkeydown = function(e) {
-                    // "I" key
-                    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-                        disabledEvent(e);
-                    }
-                    // "J" key
-                    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-                        disabledEvent(e);
-                    }
-                    // "S" key + macOS
-                    if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-                        disabledEvent(e);
-                    }
-                    // "U" key
-                    if (e.ctrlKey && e.keyCode == 85) {
-                        disabledEvent(e);
-                    }
-                    // "F12" key
-                    if (event.keyCode == 123) {
-                        disabledEvent(e);
-                    }
-                }, false);
-        
-                function disabledEvent(e) {
-                    if (e.stopPropagation) {
-                        e.stopPropagation();
-                    } else if (window.event) {
-                        window.event.cancelBubble = true;
-                    }
-                    e.preventDefault();
-                    return false;
-                }
-            };
-        </script>
-            
-        </div></div></div>
+                                                        $('input[data-field='+fieldName+']').val(1);    }" data-field="quantity0">
+																	<i class="las la-minus"></i>
+																</span>
+																<input type="number" class="quantity-detail" data-field="quantity0" name="quantity[]" value="1" min="1">
+																<span class="qtyplus input-number-decrement" onclick="var fieldName = $(this).attr('data-field');     var currentVal = parseInt($('input[data-field='+fieldName+']').val());    if (!isNaN(currentVal)) {         $('input[data-field='+fieldName+']').val(currentVal + 1);    } else {        $('input[data-field='+fieldName+']').val(0);    }" data-field="quantity0">
+																	<i class="las la-plus"></i>
+																</span>
+															</div>
+														</td>
+														<td class="pro-price hidden-sm" valign="middle">600.000 đ</td>
+													</tr>
+													<tr>
+														<td colspan="6">
+															<a href="https://evianwater.vn/" title="Tiếp tục mua hàng" class="btn-back">Tiếp tục mua hàng</a>
+															<!--<button type="submit" class="btn-select pull-right" name="butUpdate" value="Cập nhật giỏ hàng">Cập nhật giỏ hàng</button>-->
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="col-12 col-sm-12 col-md-4 pRigth">
+											<table class="table gio-hang-table bg-totel-cart">
+												<tbody>
+													<tr>
+														<td>
+															<strong>Tổng tiền</strong>
+														</td>
+														<td class="link-red text-right">
+															<strong>600.000 đ</strong>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="text-center">
+															<input class="btn-red" type="submit" name="btnCheckout" value="Đặt hàng">
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</form>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
 </main>
 <script>
         

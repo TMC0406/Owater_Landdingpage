@@ -79,3 +79,14 @@ $(function () {
     });
 
 });
+function numberFormatInput(input) {
+	const value = input.value.trim();
+	const cleanedValue = value.replace(/[^\d,.-]/g, "");
+	const cleanedValueWithComma = cleanedValue.replace(/(,)(?=\d*\.\d*$)/g, "");
+	const valueSet = parseFloat(cleanedValueWithComma.replace(/,/g, ""));
+	if (!isNaN(valueSet) && isFinite(valueSet) && value !== "") {
+		input.value = valueSet;
+	} else {
+		input.value = "";
+	}
+}
