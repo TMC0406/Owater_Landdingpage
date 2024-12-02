@@ -6,18 +6,23 @@
     <div class="swiper swip-banner swiper-initialized swiper-horizontal swiper-backface-hidden">
 		<div class="swiper-wrapper" id="swiper-wrapper-710b10110db337df9cf" aria-live="polite">
             <div class="swiper-slide" role="group" aria-label="1 / 2" style="width: 1009px;">
-				<img src="{% static '/assets/imgs/banners/Banner_Social.png' %}" alt="Nước khoáng thiên nhiên cao cấp OWATER">
-                <img 
-                src="{% static '/assets/imgs/banners/Banner_Social.png' %}" 
-                srcset="
-                {% static '/assets/imgs/banners/Anh 2.png' %} 480w, 
-                {% static '/assets/imgs/banners/Anh 2.png' %} 800w, 
-                {% static '/assets/imgs/banners/Banner_Social.png' %} 1200w" 
-                sizes="(max-width: 600px) 480px, 
-                    (max-width: 1200px) 800px, 
-                    1200px" 
-                alt="Nước khoáng thiên nhiên cao cấp OWATER">
-				<div class="main-inner">
+                <picture>
+                    <source srcset="{% static '/assets/imgs/banners/Anh 2.png' %}" media="(max-width: 600px)">
+                    <source srcset="{% static '/assets/imgs/banners/Anh 2.png' %}" media="(max-width: 1000px)">
+                    <img src="{% static '/assets/imgs/banners/Banner_Social.png' %}" alt="Fallback image">
+                </picture>
+                <!-- <img src="{% static '/assets/imgs/banners/Banner_Social.png' %}" 
+                    srcset="
+                        {% static '/assets/imgs/banners/Anh 2.png' %} 480w, 
+                        {% static '/assets/imgs/banners/Anh 2.png' %} 800w, 
+                        {% static '/assets/imgs/banners/Banner_Social.png' %} 1200w" 
+                        sizes="(max-width: 600px) 480px, 
+                        (max-width: 768px) 800px,
+                        (max-width: 1024px) 1000px, 
+                        1200px" 
+                    alt="Nước khoáng thiên nhiên cao cấp OWATER"> -->
+				
+                    <div class="main-inner">
 					<div class="container">
 						<div class="row align-items-center">
 							<div class="col-12 col-lg-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500">
@@ -33,16 +38,11 @@
 				</div>
 			</div>
 			<div class="swiper-slide " role="group" aria-label="2 / 2" style="width: 1009px;">
-                <img 
-                    src="{% static '/assets/imgs/banners/banner_owarter.jpg' %}" 
-                    srcset="
-                    {% static '/assets/imgs/banners/Slide_1.jpg' %} 480w, 
-                    {% static '/assets/imgs/banners/Slide_1.jpg' %} 800w, 
-                    {% static '/assets/imgs/banners/banner_owarter.jpg' %} 1200w" 
-                    sizes="(max-width: 600px) 480px, 
-                        (max-width: 1200px) 800px, 
-                        1200px" 
-                    alt="Nước khoáng thiên nhiên cao cấp OWATER">
+                <picture>
+                    <source srcset="{% static '/assets/imgs/banners/Slide_1.jpg' %}" media="(max-width: 600px)">
+                    <source srcset="{% static '/assets/imgs/banners/Slide_1.jpg' %}" media="(max-width: 1000px)">
+                    <img src="{% static '/assets/imgs/banners/banner_owarter.jpg' %}" alt="Fallback image">
+                </picture>
 				<div class="main-inner">
 					<div class="container">
 						<div class="row align-items-center">
@@ -95,13 +95,13 @@
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="grid-item-inner">
                         <div class="grid-item-top ">
-                            <a href="https://evianwater.vn/evian-500ml.htm" rel="nofollow" title="Owater chai nhựa 500ml (Thùng / 24 Chai)">
-                                <img src="{% static '/assets/imgs/products/Binh nuoc A2.png' %}" alt="Owater chai nhựa 500ml (Thùng / 24 Chai)">
+                            <a href="https://evianwater.vn/evian-500ml.htm" rel="nofollow" title="Owater bình 20L">
+                                <img src="{% static '/assets/imgs/products/Binh nuoc A2.png' %}" alt="Owater bình 20L">
                             </a>
                         </div>
                         <div class="grid-item-bottom">
                             <div class="product-name-out">
-                                <a href="https://evianwater.vn/evian-500ml.htm" title="Owater chai nhựa 500ml (Thùng / 24 Chai)" class="link-product">OWA HIGH OXYGEN TYPE A2 - pH 8.5-8.9</a>
+                                <a href="https://evianwater.vn/evian-500ml.htm" title="Owater bình 20L" class="link-product">OWA HIGH OXYGEN TYPE A2 - pH 8.5-8.9</a>
                             </div>
                             <span class="price">60.000đ/bình</span>
                             <a href="https://evianwater.vn/?idCart=3440" rel="nofollow" class="btn btn-style3 btn-sm">Mua ngay</a>
@@ -140,14 +140,14 @@
                             </div>
                             <p></p>
                             <hr>
-                            <div style="text-align: left;">
+                            <div classc="text-left">
                                 <p >- Công dụng: Có nồng độ pH nhẹ, vị ngọt thanh mát, phù hợp cho người mới bắt đầu sử dụng nước ion kiềm.
                                 </p>
                                 <p > - Khuyến mãi: Mua 3 bình tặng 1 bình cùng loại trong 1 tháng đầu sử dụng.
                                 </p>
                                 <p> &nbsp;</p>
                             </div>
-                            <a href="{% url 'detail' type='A3' %}" rel="nofollow" title="Evian chai nhựa 330ml (Thùng / 24 Chai)" class="btn btn-style1 btn-lg btn-block">Xem thêm</a>
+                            <a href="{% url 'detail' type='A3' %}" rel="nofollow" title="OWA HIGH OXYGEN TYPE A3" class="btn btn-style1 btn-lg btn-block">Xem thêm</a>
                             <a href="https://evianwater.vn/?idCart=3436" class="btn btn-style3 btn-lg btn-block">Mua ngay</a>
                         </div>
                         <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 6" data-swiper-slide-index="1" style="width: 253px; opacity: 0; transform: translate3d(-253px, 0px, 0px);">
@@ -164,6 +164,7 @@
                                 <p > - Khuyến mãi: Mua 3 bình tặng 1 bình cùng loại trong 1 tháng đầu sử dụng.
                                 </p>
                             </div>
+                            <a href="{% url 'detail' type='A2' %}" rel="nofollow" title="OWA HIGH OXYGEN TYPE A2" class="btn btn-style1 btn-lg btn-block">Xem thêm</a>
                             <a href="https://evianwater.vn/?idCart=3440" class="btn btn-style3 btn-lg btn-block">Mua ngay</a>
                         </div>
                         <div class="swiper-slide" role="group" aria-label="3 / 6" data-swiper-slide-index="2" style="width: 253px; opacity: 0; transform: translate3d(-506px, 0px, 0px);">
@@ -182,6 +183,7 @@
                                 <p > - Khuyến mãi: Mua 3 bình tặng 1 bình cùng loại trong 1 tháng đầu sử dụng.
                                 </p>
                             </div>
+                            <a href="{% url 'detail' type='A1' %}" rel="nofollow" title="OWA HIGH OXYGEN TYPE A1" class="btn btn-style1 btn-lg btn-block">Xem thêm</a>
                             <a href="https://evianwater.vn/?idCart=3428" class="btn btn-style3 btn-lg btn-block">Mua ngay</a>
                         </div>
                     </div>
@@ -192,13 +194,13 @@
             <div class="swiper swiper-product w-[60%] relative" thumbsslider="" data-aos="fade-left">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide center-flex " role="group" aria-label="1 / 3">
-                        <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc.png' %}" alt="Owater">
+                        <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc A3.png' %}" alt="Owater">
                     </div>
                     <div class="swiper-slide center-flex" role="group" aria-label="2 / 3">
                         <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc A2.png' %}" alt="Owater">
                     </div>
                     <div class="swiper-slide center-flex" role="group" aria-label="3 / 3">
-                        <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc A3.png' %}" alt="Owater">
+                        <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc.png' %}" alt="Owater">
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
@@ -223,7 +225,7 @@
 			</div>
 			<div class="row item-campaign no-gutters align-items-center">
 				<div class="col-12 col-lg-5 col-img">
-					<img src="https://evianwater.vn/library/module_new/san-pham-cua-evian_s3445.jpg" alt="Sản phẩm của Owater">
+					<img src="{% static '/assets/imgs/banners/Anh 2.png' %}" alt="Sản phẩm của Owater">
 				</div>
 				<div class="col-12 col-lg-7 col-content" data-aos="fade-up">
 					<p class="name-home">Sản phẩm của Owater</p>
@@ -235,7 +237,7 @@
 			</div>
 			<div class="row item-campaign no-gutters img-right align-items-center">
 				<div class="col-12 col-lg-5 col-img">
-					<img src="https://evianwater.vn/library/module_new/cau-chuyen-ve-chung-toi_s3429.jpg" alt="Câu chuyện về chúng tôi">
+					<img class="w-full" src="{% static '/assets/imgs/banners/Slide_1.jpg' %}" alt="Câu chuyện về chúng tôi">
 				</div>
 				<div class="col-12 col-lg-7 col-content" data-aos="fade-up">
 					<p class="name-home">Câu chuyện về chúng tôi</p>

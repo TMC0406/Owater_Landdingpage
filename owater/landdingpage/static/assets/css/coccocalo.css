@@ -57,7 +57,7 @@
     -webkit-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
     animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out; }
   
-  .coccoc-hotline {
+  .hotline {
     background-color: #004ecc;
     height: 40px;
     color: #fff;
@@ -196,4 +196,4 @@
     100% {
       -webkit-transform: rotate(0) scale(1) skew(1deg);
               transform: rotate(0) scale(1) skew(1deg); } }
-              @media (max-width: 767px) {.coccoc-hotline{ display:none}}
+              @media (max-width: 767px) {.hotline{ display:none}}
