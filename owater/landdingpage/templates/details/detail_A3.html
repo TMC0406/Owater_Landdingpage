@@ -9,8 +9,8 @@
                 <div class="col-12 col-lg-4">
                     <div class="thumb-img">
                         <div class="pro-detail-img">
-                            <div class="_img">
-                                <img src="{% static '/assets/imgs/products/Binh nuoc A3.png' %}" class="fotorama__img" style="width: 220px;">
+                            <div class="center-flex">
+                                <img src="{% static '/assets/imgs/products/Binh nuoc A3.png' %}" class="" style="width: 220px;">
                             </div>
                         </div>
                     </div>
@@ -38,21 +38,25 @@
                         </p>
                         <p> &nbsp;</p>
                     </div>
-                    <div class="pro-property">
-                        <div class="property-item hidden">
-                            <p class="">    
-                                <button onclick="decreaseQuantity()" class="h-10 w-10 border p-2 outline-none">
-                                    <i class="fa-solid fa-minus"></i>
-                                </button>
-                                <input id="quantity" value="1" readonly class="h-10 outline-none w-20 border p-2 text-center" type="text">
-                                <button onclick="increaseQuantity()" class="h-10 w-10 border outline-none p-2">
-                                    <i class="fa-solid fa-plus"></i>
-                                </button>
-                            </p>
+                    <div class="pro-property flex justify-center hidden">
+                        <div class="property-item flex-1">
+                            <button onclick="decreaseQuantity()" class="btn-style3 h-10 w-10 border p-2 outline-none">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <input id="quantity" value="1" readonly class="h-10 outline-none w-20 border p-2 text-center" type="text">
+                            <button onclick="increaseQuantity()" class="btn-style3 h-10 w-10 border outline-none p-2">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="flex-1 ">
+                            <button class="h-10 w-full btn-style3  h-full">
+                                <i class="fa-solid fa-shopping-cart  "></i>
+                                <span>Thêm vào giỏ hàng</span>
+                            </button>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#quickbuy">
-                        <strong>Mua nhanh</strong>
+                    <button onclick="handleAddToCart(1)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#quickbuy">
+                        <strong>Mua ngay</strong>
                         <span>Gọi điện xác nhận và giao hàng tận nơi</span>
                     </button>
                 </div>
@@ -90,19 +94,7 @@
     </div>
 </main>
 <script>
-    function increaseQuantity() {
-  const quantityInput = document.getElementById('quantity');
-  let currentValue = parseInt(quantityInput.value); // Lấy giá trị hiện tại
-  quantityInput.value = currentValue + 1; // Tăng giá trị lên 1
-}
 
-function decreaseQuantity() {
-  const quantityInput = document.getElementById('quantity');
-  let currentValue = parseInt(quantityInput.value);
-  if (currentValue > 1) {
-    quantityInput.value = currentValue - 1; // Giảm giá trị xuống 1 (nếu lớn hơn 1)
-  }
-}
 </script>
 
 {% endblock main-content %}

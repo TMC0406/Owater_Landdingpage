@@ -10,84 +10,72 @@
 				<div class="col-12">
 					<div class="contact page-partial">
 						<section class="gio-hang">
-							<form action="https://evianwater.vn/order/" method="POST" class="butUpdate" name="frmCart">
-								<div class="container">
-									<div class="row">
-										<div class="col-12 col-sm-12 col-md-8 pLeft">
-											<table class="table gio-hang-table">
-												<thead>
-													<tr>
-														<th colspan="3">Sản phẩm</th>
-														<th class="d-none d-md-block">Giá bán</th>
-														<th class="txt-noWrap">Số lượng</th>
-														<th class="d-none d-md-block w-totalamount">Tổng tiền</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class="pro-remove" valign="middle">
-															<a onclick="window.location='https://evianwater.vn/order/&amp;act=del&amp;pos=0';return false;" title="Xóa" class="link-red">
-																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-																	<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
-																	<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
-																</svg>
-															</a>
-														</td>
-														<td class="pro-thumnail" valign="middle">
-															<a href="https://evianwater.vn/evian-330ml.htm" title="Owarter bình 20L">
-																<img src="https://evianwater.vn/thumb/30/25/library/module_new/evian-chai-nhua-330ml-thung-24-chai_s3436.png" alt="Owarter bình 20L">
-															</a>
-														</td>
-														<td class="pro-name" valign="middle">
-															<a href="https://evianwater.vn/evian-330ml.htm" class="link-black" title="Owarter bình 20L">Owarter bình 20L</a>
-														</td>
-														<td class="pro-price hidden-sm" valign="middle">600.000 đ</td>
-														<td valign="middle">
-															<div class="qty pro-quantity">
-																<span class="qtyminus input-number-decrement" onclick="var fieldName = $(this).attr('data-field');   var currentVal = parseInt($('input[data-field='+fieldName+']').val());    if (!isNaN(currentVal) &amp;&amp; currentVal > 1) {          
-                                                        $('input[data-field='+fieldName+']').val(currentVal - 1);    } else {
-                                                        $('input[data-field='+fieldName+']').val(1);    }" data-field="quantity0">
-																	<i class="las la-minus"></i>
-																</span>
-																<input type="number" class="quantity-detail" data-field="quantity0" name="quantity[]" value="1" min="1">
-																<span class="qtyplus input-number-decrement" onclick="var fieldName = $(this).attr('data-field');     var currentVal = parseInt($('input[data-field='+fieldName+']').val());    if (!isNaN(currentVal)) {         $('input[data-field='+fieldName+']').val(currentVal + 1);    } else {        $('input[data-field='+fieldName+']').val(0);    }" data-field="quantity0">
-																	<i class="las la-plus"></i>
-																</span>
-															</div>
-														</td>
-														<td class="pro-price hidden-sm" valign="middle">600.000 đ</td>
-													</tr>
-													<tr>
-														<td colspan="6">
-															<a href="https://evianwater.vn/" title="Tiếp tục mua hàng" class="btn-back">Tiếp tục mua hàng</a>
-															<!--<button type="submit" class="btn-select pull-right" name="butUpdate" value="Cập nhật giỏ hàng">Cập nhật giỏ hàng</button>-->
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<div class="col-12 col-sm-12 col-md-4 pRigth">
-											<table class="table gio-hang-table bg-totel-cart">
-												<tbody>
-													<tr>
-														<td>
-															<strong>Tổng tiền</strong>
-														</td>
-														<td class="link-red text-right">
-															<strong>600.000 đ</strong>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2" class="text-center">
-															<input class="btn-red" type="submit" name="btnCheckout" value="Đặt hàng">
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
+							<div class="container">
+								<div class="row">
+									<div class="col-12 col-sm-12 col-md-8 pLeft">
+										<table class="table gio-hang-table">
+											<thead>
+												<tr>
+													<th colspan="3">Sản phẩm</th>
+													<th class="">Giá bán</th>
+													<th class="">Số lượng</th>
+													<th class="">Tổng tiền</th>
+												</tr>
+											</thead>
+											<tbody id="cart-container">
+												<tr>
+													<td>
+														<span>1</span>
+													</td>
+													<td class="pro-thumnail" >
+														<a href="#" title="Owarter bình 20L">
+															<img style="width: 20px;" src="{% static '/assets/imgs/products/Binh nuoc A3.png' %}" alt="Owarter bình 20L">
+														</a>
+													</td>
+													<td class="pro-name" >
+														<a href="#" class="link-black" title="Owarter bình 20L">Owarter bình 20L</a>
+													</td>
+													<td class="pro-price hidden-sm" >45.000đ/bình</td>
+													<td >
+														<div class="">
+															<button  class="btn-style3 h-10 w-10 border p-2 outline-none">
+																<i class="fa-solid fa-minus"></i>
+															</button>
+															<input id="quantity" value="1" readonly class="h-10 outline-none w-20 border p-2 text-center" type="text">
+															<button class="btn-style3 h-10 w-10 border outline-none p-2">
+																<i class="fa-solid fa-plus"></i>
+															</button>
+														</div>
+													</td>
+													<td class="pro-price hidden-sm" >45.000đ</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="col-12 col-sm-12 col-md-4 pRigth">
+										<table class="table gio-hang-table bg-totel-cart">
+											<tbody>
+												<tr>
+													<td>
+														<strong>Tổng tiền</strong>
+													</td>
+													<td class="link-red text-right">
+														<strong> <span id="cart-total"><span></span>đ</strong>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="2" class="text-center">
+														<a class="btn-blue" href="{% url 'orderInfo' %}">
+															Đặt hàng
+														</a>
+														<!-- <input class="btn-blue" type="submit" name="btnCheckout" value="Đặt hàng"> -->
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
-							</form>
+							</div>
 						</section>
 					</div>
 				</div>
@@ -96,7 +84,8 @@
     </div>
 </main>
 <script>
-        
+
+
 </script>
 
 {% endblock main-content %}

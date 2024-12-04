@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .forms import formInfo
+
 
 # Create your views here.
 def home(request):
@@ -17,3 +19,8 @@ def order(request):
     return render(request, 'order.html')
 def contact(request):
     return render(request, 'contact.html')
+def orderInfo(request):
+    formInfoData = formInfo()
+    return render(request, 'orderInfo.html',{
+        'formInfoData': formInfoData,
+    })

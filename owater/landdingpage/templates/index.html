@@ -54,7 +54,7 @@
 									<a href="#" title="Câu chuyện về Owater">Câu chuyện về Owater</a>
 								</li>
 								<li>
-									<a href="#" title="Hydrat hóa">Hydrat hóa</a>
+									<a href="#" title="Công Nghệ Vi Lượng">Công Nghệ Vi Lượng</a>
 								</li>
 								<li>
 									<a href="#" title="Bảo vệ nguồn nước Owater">Bảo vệ nguồn nước Owater</a>
@@ -77,6 +77,57 @@
 			</div>
 		</div>
 	</header>
+	<!-- <div class="modal fade show " id="popup-container" tabindex="-1" role="dialog" aria-labelledby="quickbuyTitle" style="padding-right: 15px; display: block;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title" id="quickbuyTitle">
+						<strong>Mua</strong> Evian chai nhựa 330ml (Thùng / 24 Chai)
+					</div>
+					<button onclick="closePopup()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form class="dktv" method="post" action="https://evianwater.vn/evian-330ml.htm" name="formquickbuy">
+						<input type="hidden" value="https://evianwater.vn/evian-330ml.htm" name="link">
+						<input type="hidden" value="3436" name="idPro">
+						<input type="hidden" value="600000" name="price">
+						<input type="hidden" value="0" name="type_payment">
+						<div class="quickbuy-quantity">
+							<label>Số lượng</label>
+							<div class="property-item flex-1">
+								<button onclick="decreaseQuantity()" class="btn-style3 h-10 w-10 border p-2 outline-none">
+									<i class="fa-solid fa-minus"></i>
+								</button>
+								<input id="quantity" value="1" readonly class="h-10 outline-none w-20 border p-2 text-center" type="text">
+								<button onclick="increaseQuantity()" class="btn-style3 h-10 w-10 border outline-none p-2">
+									<i class="fa-solid fa-plus"></i>
+								</button>
+							</div>
+							<div class="pro-props__price">Giá bán: 600.000 đ</div>
+						</div>
+						<div class="form-info">Quý khách vui lòng nhập đúng số điện thoại để Chúng tôi sẽ gọi xác nhận đơn hàng trước khi giao hàng. Xin cảm ơn!</div>
+						<div class="form-group">
+							<input type="text" class="form-control" required="required" minlength="1" maxlength="50" value="" name="txtName" placeholder="Họ và tên*">
+						</div>
+						<div class="form-group">
+							<input type="tel" class="form-control" required="required" minlength="1" maxlength="50" value="" name="txtPhone" placeholder="Số điện thoại*">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name="txtAddress" value="" placeholder="Địa chỉ (Không bắt buộc)">
+						</div>
+						<div class="form-group">
+							<textarea class="form-control" name="note" rows="4" maxlength="500" placeholder="Ghi chú đơn hàng"></textarea>
+						</div>
+						<div class="center-flex">
+							<button type="submit" name="btnQuickbuy" class="btn btn-contact">Đặt mua ngay</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div> -->
 	{% block main-content %}
 
 	{% endblock main-content %}
@@ -85,17 +136,9 @@
 			<div class="row">
 				<div class="col-12 col-md-5  col-lg-5">
 					<div>
-						<span style="font-size: 16px;">
-							<em>
-								<span style="color: rgb(255, 0, 0);">
-									<strong>
-										<span style="background-color: rgb(255, 255, 0);">- ĐỊA CHỈ MUA HÀNG-</span>
-									</strong>
-								</span>
-							</em>
-						</span>
+						<p class="foot-title">OWA Vietnam Co. ,LTD</p>
+						
 					</div>
-					<div> &nbsp;</div>
 					<div>
 						<div>
 							<strong>- Tầng 1 Tòa nhà i9 Khuất Duy Tiến, Phường Thanh Xuân Bắc, Quận Thanh Xuân, Hanoi, Vietnam
@@ -103,11 +146,9 @@
 						</div>
 						
 					</div>
-					<div> &nbsp;</div>
 					<div> ✉ tamtt@owater.vn</div>
 					<div> ☎ 096 312 84 81</div>
 					<div> Công ty TNHH OWA Vietnam Co. ,LTD </div>
-					<div> &nbsp;</div>
 				</div>
 				<div class="col-12 col-md-2 col-lg-2">
 					<p class="foot-title">Menu</p>
@@ -163,6 +204,10 @@
 				</div>
 			</div>
 		</div>
+		<div> &nbsp;</div>
+		<div> &nbsp;</div>
+		<div> &nbsp;</div>
+
 		<div class="copyright">
 			<div class="container">
 				<span>
@@ -221,7 +266,15 @@
     <script src="{% static '/assets/js/jquery-3.7.1.min.js' %}"></script>
 	<!-- Technology -->
 	<script src="{% static '/assets/js/main.js' %}"></script>
+	<script>
+		function showPopup() {
+			document.getElementById("popup-container").style.display = "flex";
+		}
 
+		function closePopup() {
+			document.getElementById("popup-container").style.display = "none";
+		}
+	</script>
 	<!-- <script language="JavaScript">
 		window.onload = function() {
 			document.addEventListener("contextmenu", function(e) {

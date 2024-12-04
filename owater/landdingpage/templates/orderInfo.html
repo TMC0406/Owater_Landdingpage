@@ -1,0 +1,214 @@
+{% extends "index.html" %}
+{% load static %}
+{% block main-content %}
+<main>    
+    <div class="nxPaddingPage">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-8">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="title">Thông tin đặt hàng</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group ">
+                                <label for="">Họ và tên <span style="color: red;" title="Bắt buộc">*</span> </label>
+                                <input id="username" type="text" class="form-control" required="required" name="txtName" minlength="3" maxlength="40" value="" placeholder="Họ và tên">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group ">
+                                <label for="">Số điện thoại <span style="color: red;" title="Bắt buộc">*</span> </label>
+                                <input  id="phone" type="tel" name="txtPhone" required="required" value="" minlength="5" maxlength="15" class="form-control" placeholder="Số điện thoại">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group ">
+                                <label  for="">Địa chỉ <span style="color: red;" title="Bắt buộc">*</span> </label>
+                                <input  id="address" type="text" class="form-control" required="required" name="txtAddress" minlength="3" maxlength="200" value="" placeholder="Địa chỉ">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group ">
+                                <label for="">Tỉnh / Thành phố <span style="color: red;" title="Bắt buộc">*</span> </label>
+                                <input  id="province" type="text" class="form-control" name="txtCity" value="" minlength="3" maxlength="30" required="required" placeholder="Tỉnh / Thành phố ">
+                                <small >(Hiện chỉ giao ở các tỉnh Hà Nội Và thành phố Hồ Chí Minh)</small>
+                                <p id="error-province">Vui lòng điền thông tin</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="">Email <em>(Không bắt buộc)</em>
+                                </label>
+                                <input id="email" type="email" name="txtEmail" value="" maxlength="80" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="">Ghi chú đơn hàng <em>(Không bắt buộc)</em>
+                                </label>
+                                <textarea id="note" class="form-control" name="note" rows="3" maxlength="500"  placeholder="Ghi chú đơn hàng "></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 border border-2 p-4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="text-center">Thông tin đơn hàng</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table gio-hang-table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Sản phẩm</th>
+                                        <th class="w-totalamount">Tổng tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list-product">
+                                    <tr>
+                                        <td>
+                                            <img src="{% static '/assets/imgs/products/Binh nuoc A3.png' %}" width="50" alt="Evian chai nhựa 330ml (Thùng / 24 Chai)">
+                                        </td>
+                                        <td>OWA HIGH OXYGEN TYPE A1 × 1</td>
+                                        <td class="link-red text-right">
+                                            <strong>45.000đ</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <strong>Tổng tiền</strong>
+                                        </td>
+                                        <td class="link-red text-right">
+                                            <strong>45.000 đ</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul style="list-style: none; padding: 0px; margin: 0px;">
+                                <li>
+                                    <h4>Thanh toán khi nhận hàng</h4>
+                                    <div class="box">
+                                        <p>
+                                            <span style="text-align: center;">Đơn hàng đã được ghi nhận, chúng tôi sẽ liên hệ để xác nhận đơn hàng trong vòng 12 giờ (trong thời gian làm việc chúng tôi 8h00- 17h30 mỗi ngày). Đơn hàng không được chúng tôi gọi lại để xác nhận, đồng nghĩa đơn hàng này tự động huỷ vì không đủ điều kiện giao hàng!</span>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <button id="btn-submit" class="btn-blue">
+                                Đặt hàng
+                            </button>
+                        </div>
+                        <div class="col-sm-12">
+                            <p style="padding-top: 15px;">Thông tin cá nhân của bạn sẽ được sử dụng để xử lý đơn đặt hàng của bạn. Chúng tôi không sử dụng thông tin này cho các bên thứ ba chính sách riêng tư.</p>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <a href="/order" title="Trở về giỏ hàng" class="btn-back">Trở về giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+<form class="hidden" id="formInfo">
+    {% csrf_token %}
+    {% for field in formInfoData %} 
+        {{ field.label }} 
+        {{ field }} 
+    {% endfor %}
+
+</form>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+            renderListProduct(cart)
+    }, 100);
+    function renderListProduct(cart) {
+        const container = document.getElementById('list-product');
+        if(!container){
+            return
+        }  
+        
+        container.innerHTML = cart.map((item, index) =>{
+            if(item.quantity > 0){
+                let row = `
+                    <tr>
+                        <td>
+                            <img src="${item.imgSrc}" width="50" alt="Evian chai nhựa 330ml (Thùng / 24 Chai)">
+                        </td>
+                        <td>${item.name} × ${item.quantity}</td>
+                        <td class="link-red text-right">
+                            <strong>${(item.price * item.quantity).toLocaleString('vi-VN')}đ</strong>
+                        </td>
+                    </tr>
+                `
+                return row
+            }
+        }).join('');
+    }
+
+    $("#username").on("change",(e)=>{
+        let value = e.target.value
+        $("#id_username").val(value)
+    })
+    $("#phone").on("change",(e)=>{
+        let value = e.target.value
+        $("#id_phone").val(value)
+
+    })
+    $("#address").on("change",(e)=>{
+        let value = e.target.value
+        $("#id_address").val(value)
+
+    })
+    $("#province").on("change",(e)=>{
+        let value = e.target.value
+        $("#id_province").val(value)
+
+    })
+    $("#email").on("change",(e)=>{
+        let value = e.target.value
+        $("#id_email").val(value)
+
+    })
+    $("#note").on("change",(e)=>{
+        let value = e.target.value
+        $("#id_note").val(value)
+
+    })
+    $("#id_dataOder").val()
+    $("#btn-submit").on("click",async ()=>{
+        try {
+            const response = await $.ajax({
+                type: "POST",
+                url: "/order-products",
+                data: $("#formInfo").serialize(),
+            });     
+            console.log(response)
+            if (response  && response.statusreturn === 'true') {
+
+                // window.location.href = '/ref/' + response.id;
+            }else{
+
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    })
+});
+
+
+</script>
+{% endblock main-content %}
