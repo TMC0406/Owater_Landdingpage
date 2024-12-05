@@ -117,21 +117,24 @@ function handleAddToCart(id) {
 let cart = [
     {
         "id": 1,
-        "name": "OWA HIGH OXYGEN TYPE A1",
+        "name": "NƯỚC UỐNG KANGEN OWA TYPE A1",
+        "type" : "A1",
         "price": 45000,
         "quantity": 0,
         "imgSrc": "/static/assets/imgs/products/Binh nuoc A3.png"
     },
     {
         "id": 2,
-        "name": "OWA HIGH OXYGEN TYPE A2",
+        "name": "NƯỚC UỐNG KANGEN OWA TYPE A2",
+        "type" : "A2",
         "price": 60000,
         "quantity": 0,
         "imgSrc": "/static/assets/imgs/products/Binh nuoc A2.png"
     },
     {
         "id": 3,
-        "name": "OWA HIGH OXYGEN TYPE A3",
+        "name": "NƯỚC UỐNG KANGEN OWA TYPE A3",
+        "type" : "A3",
         "price": 100000,
         "quantity": 0,
         "imgSrc": "/static/assets/imgs/products/Binh nuoc.png"
@@ -188,13 +191,13 @@ function renderCart(cart) {
     }  
     
     container.innerHTML = cart.map((item, index) => `
-        <tr>
+        <tr style="background-color:rgba(0,0,0,0.05)">
             <td>${index + 1}</td>
             <td class="pro-thumbnail">
                 <img style="width: 50px;" src="${item.imgSrc}" alt="${item.name}">
             </td>
             <td class="pro-name">${item.name}</td>
-            <td class="pro-price">${item.price.toLocaleString('vi-VN')}đ</td>
+            <td class="pro-price lg-hidden">${item.price.toLocaleString('vi-VN')}đ</td>
             <td>
                 <div class="flex">
                     <button onclick="decreaseQuantity(${item.id})" class="btn-style3 h-10 w-10 border p-2 outline-none">
@@ -271,4 +274,20 @@ function updateTotalCartPrice() {
     if (totalCartElement) {
         totalCartElement.textContent = `${totalPrice.toLocaleString('vi-VN')}đ`; // Cập nhật giao diện
     }
+}
+// Hàm reset giỏ hàng
+function resetCart() {
+    // Đặt lại số lượng của tất cả sản phẩm về 0
+    cart.forEach(item => {
+        item.quantity = 0;
+    });
+
+    // Lưu giỏ hàng trống vào Local Storage
+    saveCartToLocal(cart);
+
+    // Cập nhật giao diện
+    updateCartQuantity();         // Cập nhật số lượng hiển thị
+    updateCartTotalDisplay();     // Cập nhật tổng giá trị giỏ hàng
+    renderCart(cart);             // Render lại danh sách giỏ hàng
+    updateTotalCartPrice();       // Cập nhật tổng tiền giỏ hàng
 }

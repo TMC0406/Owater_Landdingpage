@@ -1,0 +1,53 @@
+{% extends "index.html" %}
+{% load static %}
+{% block main-content %}
+<main>
+    <div class="nxPaddingPage">
+        <div class="container text-center">
+            <h1 class="">Danh Sách Đơn Hàng</h1>
+            <div class="">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">ID</th>
+                            <th rowspan="2">Tên khác hàng</th>
+                            <th rowspan="2">Tổng Tiền</th>
+                            <th rowspan="2">Trạng Thái</th>
+                            <th rowspan="2">Thời Gian</th>
+                            <th colspan="3">Số Lượng</th>
+                        </tr>
+                        <tr>
+                            <th>A1</th>
+                            <th>A2</th>
+                            <th>A3</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in listOrder %}
+                            <tr>
+                                <td>{{ item.id }}</td>
+                                <td>{{ item.username }}</td>
+                                <td>{{ item.total }}đ</td>
+                                <td>
+                                    {% if item.status == "waiting" %}
+                                    Đang chờ xác nhận
+                                    {% elif item.status == "processing" %}
+                                    Đang xử lý
+                                    {% elif item.status == "shipping" %}
+                                    Đang giao hàng
+                                    {% endif %}
+                                </td>
+                                <td>{{ item.createtime }}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                          </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock main-content %}

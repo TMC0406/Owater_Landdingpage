@@ -8,6 +8,7 @@ class formInfo(forms.Form):
     email = forms.CharField()
     note = forms.CharField()
     dataOder = forms.CharField()
+    total = forms.CharField()
 
 
 

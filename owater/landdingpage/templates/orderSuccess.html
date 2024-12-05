@@ -1,0 +1,145 @@
+{% extends "index.html" %}
+{% load static %}
+{% block main-content %}
+<main>
+    <div class="nxPaddingPage">
+        <div class="container">
+            <h1 class="text-center page-title">Thông tin đơn hàng</h1>
+            <div class="thong-bao">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-8">
+                            <div class="box-gray">
+                                <h3 style="text-align: center;">Nội Dung Đơn Hàng</h3>
+                                <p > Đơn hàng đã được ghi nhận, chúng tôi sẽ liên hệ để xác nhận đơn hàng trong vòng 12 giờ (trong thời gian làm việc chúng tôi 8h00- 17h30 mỗi ngày). Đơn hàng không được chúng tôi gọi lại để xác nhận, đồng nghĩa đơn hàng này tự động huỷ vì không đủ điều kiện giao hàng!</p>
+                                <p >
+                                    <strong>Chúng tôi trân trọng cảm ơn quý khách hàng đã tin tưởng và sử dụng sản phẩm.</strong>
+                                </p>
+                                <h2 class="h2-order-status">Thông tin đơn hàng</h2>
+                                <ul class="ul-order-status">
+                                    <li>Mã:&nbsp; <strong>{{requestData.id}}</strong>
+                                    </li>
+                                    <li>Trạng thái:&nbsp; <strong>
+                                            <strong class="text-warning">
+                                                {% if requestData.status == "waiting" %}
+                                                Đang chờ xác nhận
+                                                {% elif requestData.status == "processing" %}
+                                                Đang xử lý
+                                                {% elif requestData.status == "shipping" %}
+                                                Đang giao hàng
+                                                {% endif %}
+                                            </strong>
+                                        </strong>
+                                    </li>
+                                    <li>Đặt hàng lúc:&nbsp; <strong>{{requestData.createtime}}</strong>
+                                    </li>
+                                    <li>Tổng tiền:&nbsp; <strong id="total">0đ</strong>
+                                    </li>
+                                </ul>
+                                <h2 class="h2-order-status">Thông tin giao hàng</h2>
+                                <ul class="ul-order-status">
+                                    <li>Họ và tên:&nbsp; <strong>{{requestData.username}}</strong>
+                                    </li>
+                                    <li>Địa chỉ:&nbsp; <strong>{{requestData.address}}</strong>
+                                    </li>
+                                    <li>Số điện thoại:&nbsp; <strong>{{requestData.phone}}</strong>
+                                    </li>
+                                    <li>
+                                        Ghi chú đơn hàng:&nbsp;<strong>{{requestData.note}}</strong>
+                                    </li>
+                                </ul>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 pRigth box-black">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table gio-hang-table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Sản phẩm</th>
+                                                <th class="w-totalamount">Tổng tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="list-product">
+                                            <tr>
+                                                <td>
+                                                    <img src="{% static '/assets/imgs/products/Binh nuoc A3.png' %}" style="width:50px" alt="">
+                                                </td>
+                                                <td>OWA HIGH OXYGEN TYPE A3 × 1</td>
+                                                <td class="link-red text-right">
+                                                    <strong>45.000 đ</strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <a href="{% url 'home' %}" title="Tiếp tục mua hàng" class="btn-back">Tiếp tục mua hàng</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    let requestData = {
+        id: '{{ requestData.id }}',
+        status: '{{ requestData.status }}',
+        createtime: '{{ requestData.createtime }}',
+        total: '{{ requestData.total }}',
+        address: '{{ requestData.address }}',
+        phone: '{{ requestData.phone }}',
+        note: '{{ requestData.note }}',
+        dataOder: {{ requestData.dataOder|safe }}
+
+    }
+    document.addEventListener('DOMContentLoaded', () => {   
+        $("#total").text(requestData.total.toLocaleString('en-US') + "đ")
+        if(requestData.dataOder){
+            setTimeout(() => {
+            renderListProduct(requestData.dataOder)
+        }, 100);
+        function renderListProduct(cart) {
+            const container = document.getElementById('list-product');
+            if(!container){
+                return
+            }  
+            let total = 0
+            container.innerHTML = cart.map((item, index) =>{
+                if(item.quantity > 0){
+                    total += item.price * item.quantity
+                    let row = `
+                        <tr style="background-color:rgba(0,0,0,0.05); ">
+                            <td>
+                                <img src="${item.imgSrc}" style="width:50px" alt="ơwater">
+                            </td>
+                            <td>${item.name} × ${item.quantity}</td>
+                            <td class="link-red text-right">
+                                <strong>${(item.price * item.quantity).toLocaleString('vi-VN')}đ</strong>
+                            </td>
+                        </tr>
+                    `
+                    return row
+                }
+            }).join('') + `
+                <tr>
+                    <td colspan="2">
+                        <strong>Tổng tiền</strong>
+                    </td>
+                    <td class="link-red text-right">
+                        <strong>${total.toLocaleString('vi-VN')}đ</strong>
+                    </td>
+                </tr>
+            `;
+            }
+        }
+    })
+</script>
+{% endblock main-content %}
