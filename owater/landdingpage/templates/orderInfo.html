@@ -16,18 +16,21 @@
                             <div class="form-group ">
                                 <label for="">Họ và tên <span style="color: red;" title="Bắt buộc">*</span> </label>
                                 <input id="username" type="text" class="form-control" required="required" name="txtName" minlength="3" maxlength="40" value="" placeholder="Họ và tên">
+                                <p class="text-red d-none" id="error_username"></p>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group ">
                                 <label for="">Số điện thoại <span style="color: red;" title="Bắt buộc">*</span> </label>
                                 <input  id="phone" type="tel" name="txtPhone" required="required" value="" minlength="5" maxlength="15" class="form-control" placeholder="Số điện thoại">
+                                <p class="text-red d-none" id="error_phone"></p>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group ">
                                 <label  for="">Địa chỉ <span style="color: red;" title="Bắt buộc">*</span> </label>
                                 <input  id="address" type="text" class="form-control" required="required" name="txtAddress" minlength="3" maxlength="200" value="" placeholder="Địa chỉ">
+                                <p class="text-red d-none" id="error_address"></p>
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -35,7 +38,7 @@
                                 <label for="">Tỉnh / Thành phố <span style="color: red;" title="Bắt buộc">*</span> </label>
                                 <input  id="province" type="text" class="form-control" name="txtCity" value="" minlength="3" maxlength="30" required="required" placeholder="Tỉnh / Thành phố ">
                                 <small >(Hiện chỉ giao ở các tỉnh Hà Nội Và thành phố Hồ Chí Minh)</small>
-                                <p id="error-province">Vui lòng điền thông tin</p>
+                                <p class="text-red d-none" id="error_province"></p>
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -108,6 +111,7 @@
                             <button id="btn-submit" class="btn-blue">
                                 Đặt hàng
                             </button>
+                            <p class="text-red d-none" id="error_dataOrder"></p>
                         </div>
                         <div class="col-sm-12">
                             <p style="padding-top: 15px;">Thông tin cá nhân của bạn sẽ được sử dụng để xử lý đơn đặt hàng của bạn. Chúng tôi không sử dụng thông tin này cho các bên thứ ba chính sách riêng tư.</p>
@@ -140,13 +144,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!container){
             return
         }  
-        
+        let total = 0
         container.innerHTML = cart.map((item, index) =>{
             if(item.quantity > 0){
+                total += item.price * item.quantity
                 let row = `
-                    <tr>
+                    <tr style="background-color:rgba(0,0,0,0.05); ">
                         <td>
-                            <img src="${item.imgSrc}" width="50" alt="Evian chai nhựa 330ml (Thùng / 24 Chai)">
+                            <img src="${item.imgSrc}" style="width:50px" alt="ơwater">
                         </td>
                         <td>${item.name} × ${item.quantity}</td>
                         <td class="link-red text-right">
@@ -156,26 +161,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 `
                 return row
             }
-        }).join('');
+        }).join('') + `
+            <tr>
+                <td colspan="2">
+                    <strong>Tổng tiền</strong>
+                </td>
+                <td class="link-red text-right">
+                    <strong>${total.toLocaleString('vi-VN')}đ</strong>
+                </td>
+            </tr>
+        `;
+    $("#id_total").val(total)
     }
 
-    $("#username").on("change",(e)=>{
+    $("#username").on("change input",(e)=>{
         let value = e.target.value
         $("#id_username").val(value)
+        $("#error_username").addClass("d-none")
     })
-    $("#phone").on("change",(e)=>{
+    $("#phone").on("change input",(e)=>{
         let value = e.target.value
         $("#id_phone").val(value)
+        $("#error_phone").addClass("d-none")
 
     })
-    $("#address").on("change",(e)=>{
+    $("#address").on("change input",(e)=>{
         let value = e.target.value
         $("#id_address").val(value)
+        $("#error_address").addClass("d-none")
 
     })
-    $("#province").on("change",(e)=>{
+    $("#province").on("change input",(e)=>{
         let value = e.target.value
         $("#id_province").val(value)
+        $("#error_province").addClass("d-none")
 
     })
     $("#email").on("change",(e)=>{
@@ -188,25 +207,70 @@ document.addEventListener('DOMContentLoaded', () => {
         $("#id_note").val(value)
 
     })
-    $("#id_dataOder").val()
-    $("#btn-submit").on("click",async ()=>{
-        try {
-            const response = await $.ajax({
-                type: "POST",
-                url: "/order-products",
-                data: $("#formInfo").serialize(),
-            });     
-            console.log(response)
-            if (response  && response.statusreturn === 'true') {
-
-                // window.location.href = '/ref/' + response.id;
-            }else{
-
+    getData()
+    function getData(){
+        let data = cart.filter((item, index) =>{
+            if(item.quantity > 0){
+                return {
+                    id: item.id,
+                    quantity: item.quantity,
+                    type : item.type,
+                    name: item.name,
+                    price: 100000,
+                    imgSrc: item.imgSrc
+                }
             }
-        } catch (error) {
-            console.error(error);
+        })
+        $("#id_dataOder").val(JSON.stringify(data))
+    }
+   
+    $("#btn-submit").on("click",async ()=>{
+        let check = checkValidate()
+        if(check){
+            try {
+                const response = await $.ajax({
+                    type: "POST",
+                    url: "/order-products",
+                    data: $("#formInfo").serialize(),
+                });     
+                console.log(response)
+                if (response  && response.statusreturn === 'true') {
+                    let idDocument = response.id;
+                    resetCart()
+                    alert('Đã đặt hàng thành công!');
+                    window.location.href = '/order-success/' + response.id;
+                }else{
+    
+                }
+            } catch (error) {
+                console.error(error);
+            }
         }
     })
+    function checkValidate(){
+        let check = true
+        if($("#id_username").val() === ""){
+            check = false
+            $("#error_username").removeClass("d-none").text("Vui lòng điền họ và tên!")
+        }
+        if($("#id_phone").val() === ""){
+            check = false
+            $("#error_phone").removeClass("d-none").text("Vui lòng điền số điện thoại!")
+        }
+        if($("#id_address").val() === ""){
+            check = false
+            $("#error_address").removeClass("d-none").text("Vui lòng điền địa chỉ!")
+        }
+        if($("#id_province").val() === ""){
+            check = false
+            $("#error_province").removeClass("d-none").text("Vui lòng điền Tỉnh, Thành phố!")
+        }
+        if($("#id_dataOder").val() === "[]"){
+            check = false
+            $("#error_dataOrder").removeClass("d-none").text("Bạn chưa chọn sản phẩm nào!")
+        }
+        return check 
+    }
 });
 
 

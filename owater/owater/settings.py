@@ -10,10 +10,28 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+import firebase_admin
+from firebase_admin import credentials, firestore, storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+#Firebase Storage GKSOFTDATA
+
+FIREBASE_CREDENTIALS_PATH = "./owalandingpage-firebase-adminsdk-tkzmr-486a4cf393.json"
+FIREBASE_DATABASE_URL = "https://owalandingpage-default-rtdb.firebaseio.com/"
+FIREBASE_BUCKET_NAME = "owalandingpage.firebasestorage.app"
+# Cấu hình Firebase Admin SDK
+cred = credentials.Certificate(FIREBASE_CREDENTIALS_PATH)
+firebase_admin.initialize_app(cred, {
+    "databaseURL" : FIREBASE_DATABASE_URL,
+    "storageBucket": FIREBASE_BUCKET_NAME
+}) 
+
+# Kết nối tới Firestore
+db = firestore.Client.from_service_account_json(FIREBASE_CREDENTIALS_PATH)
 
 
 # Quick-start development settings - unsuitable for production

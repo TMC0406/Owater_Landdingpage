@@ -463,7 +463,15 @@ mark,.mark {
     font-size: 90%;
     color: #6c757d
 }
-
+.thong-bao .box-gray {
+    display: inline-block;
+    width: 100%;
+    border-radius: 3px;
+    padding: 30px 15px;
+    background-color: #f4f4f4;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.07), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
 code {
     font-size: 87.5%;
     color: #e83e8c;
@@ -8487,7 +8495,9 @@ a.text-light:hover,a.text-light:focus {
 .text-dark {
     color: #343a40 !important
 }
-
+.text-red {
+    color: red !important
+}
 a.text-dark:hover,a.text-dark:focus {
     color: #1d2124 !important
 }
@@ -9429,7 +9439,13 @@ header.sticky-header {
     line-height: 40px;
     border-right: 1px solid #eee
 }
-
+.h2-order-status {
+    background-color: #007bff;
+    padding: 5px;
+    color: #FFFFFF;
+    margin-top: 10px;
+    line-height: 30px;
+}
 .menu-mobile ul {
     margin-left: auto;
     width: 80%;
@@ -9523,20 +9539,25 @@ header.sticky-header {
 .btn-style1 {
     background-color: #5aabff;
     border-color: #5aabff;
-    color: #fff
+    color: #fff;
+    padding: 10px;
 }
 
 .btn-style1:hover {
     background-color: #5aabff;
     border-color: #5aabff;
-    color: #fff
+    color: #fff;
+    
 }
 
 .btn-style2 {
     border: 1px solid #5aabff;
     background: #5aabff;
     color: #fff;
-    border-color: #5aabff
+    border-color: #5aabff;
+    padding: 10px 20px;
+    /* margin: 10px; */
+
 }
 
 .btn-style2:hover {
@@ -9548,7 +9569,8 @@ header.sticky-header {
 .btn-style3 {
     background-color: transparent;
     border: 2px solid #5aabff;
-    color: #007bff
+    color: #007bff;
+    padding: 10px;
 }
 
 .btn-style3 a {
@@ -11208,6 +11230,26 @@ footer a:hover {
         width: 100% !important;
         max-width: 100% !important;
     }
+    .baner-lg{
+        padding: 10px;
+        background-color: #ffffffa6;
+    }
+    .lg-space-between{
+        display: flex;
+        justify-content: space-between;
+    }
+    .row-cart{
+        display: flex;
+        flex-direction: column;
+    }
+    .row-cart div {
+        width: 100% !important;
+        max-width: 100% !important;
+
+    }
+    .lg-hidden{
+        display: none !important;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -11224,5 +11266,22 @@ footer a:hover {
     }
     .swiper-product-lg{
         display: none
+    }
+    .baner-lg{
+        padding: 10px;
+        background-color: #ffffffa6;
+    }
+    .lg-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .row-cart{
+        display: flex;
+        flex-direction: column;
+    }
+    .row-cart div {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 }
