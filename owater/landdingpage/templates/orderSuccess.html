@@ -65,7 +65,7 @@
                                         <tbody id="list-product">
                                             <tr>
                                                 <td>
-                                                    <img src="{% static '/assets/imgs/products/Binh nuoc A3.png' %}" style="width:50px" alt="">
+                                                    <img src="{% static '/assets/imgs/products/Binh nuoc A3.webp' %}" style="width:50px" alt="">
                                                 </td>
                                                 <td>OWA HIGH OXYGEN TYPE A3 × 1</td>
                                                 <td class="link-red text-right">
@@ -101,7 +101,7 @@
 
     }
     document.addEventListener('DOMContentLoaded', () => {   
-        $("#total").text(requestData.total.toLocaleString('en-US') + "đ")
+        $("#total").text((+requestData.total).toLocaleString("vi-VN") + "đ")
         if(requestData.dataOder){
             setTimeout(() => {
             renderListProduct(requestData.dataOder)

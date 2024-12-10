@@ -3,22 +3,23 @@
 {% block main-content %}
 
 <main>
-    <div class="swiper swip-banner swiper-initialized swiper-horizontal swiper-backface-hidden">
+    <div class="mt-5 swiper swip-banner swiper-initialized swiper-horizontal swiper-backface-hidden">
 		<div class="swiper-wrapper" id="swiper-wrapper-710b10110db337df9cf" aria-live="polite">
             <div class="swiper-slide" role="group" aria-label="1 / 2" style="width: 1009px;">
+               
                 <picture>
-                    <source srcset="{% static '/assets/imgs/banners/Anh 2.png' %}" media="(max-width: 600px)">
-                    <source srcset="{% static '/assets/imgs/banners/Anh 2.png' %}" media="(max-width: 1000px)">
-                    <img src="{% static '/assets/imgs/banners/Banner_Social.png' %}" alt="Fallback image">
+                    <source srcset="{% static '/assets/imgs/banners/Slide-_1_fulltext.webp' %}" media="(max-width: 600px)">
+                    <source srcset="{% static '/assets/imgs/banners/Slide-_1_fulltext.webp' %}" media="(max-width: 1000px)">
+                    <img src="{% static '/assets/imgs/banners/Banner_Social.webp' %}" alt="Fallback image">
                 </picture>
                     <div class="main-inner">
 					<div class="container">
-						<div class="row align-items-center baner-lg">
+						<div  class="row align-items-center baner-lg d-none">
 							<div class="col-12 col-lg-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500">
-								<p class="title">Nước uống i-on kiềm KANGEN OWA - Công nghệ Nhật Bản</p>
-								<div>
-									<p> Nước uống Kangen OWA High Oxygen được nghiên cứu và phát triển bởi công ty TNHH OWA Việt Nam, từ nguồn nước tự nhiên tươi mát kết hợp với công nghệ nâng cao Oxy trong nước.</p>
-                                    <p>Hãy để mỗi ngụm nước là một bước tiến đến sức khỏe toàn diện!</p>
+								<p class="title d-none">Nước uống KANGEN OWA - Công nghệ Nhật Bản</p>
+								<div class="d-none">
+									<p>Với mong muốn mang đến cho khách hàng những sản phẩm chất lượng và an toàn cho sức khỏe, OWA tự hào là lựa chọn hoàn hảo cho nhu cầu sử dụng nước ion kiềm.</p>
+                                    <p>OWA - Thương hiệu nước ion kiềm hàng đầu Việt Nam!</p>
 								</div>
 							</div>
 			
@@ -28,16 +29,17 @@
 			</div>
 			<div class="swiper-slide " role="group" aria-label="2 / 2" style="width: 1009px;">
                 <picture>
-                    <source srcset="{% static '/assets/imgs/banners/Slide_1.jpg' %}" media="(max-width: 600px)">
-                    <source srcset="{% static '/assets/imgs/banners/Slide_1.jpg' %}" media="(max-width: 1000px)">
-                    <img src="{% static '/assets/imgs/image_2.jpg' %}" alt="Fallback image">
+                    <source srcset="{% static '/assets/imgs/banners/Untitled-2.webp' %}" media="(max-width: 600px)">
+                    <source srcset="{% static '/assets/imgs/banners/Untitled-2.webp' %}" media="(max-width: 1000px)">
+                    <img src="{% static '/assets/imgs/image_2.webp' %}" alt=" image">
+                   
                 </picture>
 				<div class="main-inner">
 					<div class="container">
-						<div class="row align-items-center baner-lg">
+						<div class="row align-items-center baner-lg d-none">
 							<div class="col-12 col-lg-6" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500">
-								<p class="title">Nước uống kangen OWA – Bí quyết bứt phá giới hạn.</p>
-								<div>
+								<p class="title d-none">Nước uống kangen OWA – Bí quyết bứt phá giới hạn.</p>
+								<div class="d-none">
 									<p>Nước ion kiềm, một loại nước uống Kangen được tạo ra qua quá trình điện giải do người Nhật sáng tạo ra, ngày càng được nhiều người ưa chuộng nhờ vào những lợi ích sức khỏe tuyệt vời mà nó mang lại. Với công nghệ tiên tiến được nhập khẩu từ Nhật Bản, chúng tôi xin giới thiệu đến bạn các sản phẩm nước uống ion kiềm chất lượng cao của mình.
                                      </p>
                                      <p>Thanh lọc cơ thể, trung hòa axit, bổ sung năng lượng – tất cả chỉ trong một chai nước!</p>
@@ -68,13 +70,13 @@
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="grid-item-inner">
                         <div class="grid-item-top ">
-                            <a href="#" rel="nofollow" title="Owater bình 20L">
-                                <img src="{% static '/assets/imgs/products/Binh nuoc.png' %}" alt="Owater bình 20L">
+                            <a href="{% url 'detail' type='A3' %}" rel="nofollow" title="Owater bình 20L">
+                                <img src="{% static '/assets/imgs/products/Binh nuoc A3.webp' %}" alt="Owater bình 20L">
                             </a>
                         </div>
                         <div class="grid-item-bottom">
                             <div class="product-name-out">
-                                <a href="#" title="Owater bình 20L" class="link-product">NƯỚC UỐNG KANGEN OWA TYPE A3 - PH 8.0-8.5</a>
+                                <a href="{% url 'detail' type='A3' %}" title="Owater bình 20L" class="link-product">NƯỚC UỐNG KANGEN OWA TYPE A3 - PH 8.0-8.5</a>
                             </div>
                             <span class="price">45.000đ/bình</span>
                             <button onclick="handleAddToCart(3)" class="btn-style3  btn-block">Mua ngay</button>
@@ -84,13 +86,13 @@
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="grid-item-inner">
                         <div class="grid-item-top ">
-                            <a href="#" rel="nofollow" title="Owater bình 20L">
-                                <img src="{% static '/assets/imgs/products/Binh nuoc A2.png' %}" alt="Owater bình 20L">
+                            <a href="{% url 'detail' type='A2' %}" rel="nofollow" title="Owater bình 20L">
+                                <img src="{% static '/assets/imgs/products/Binh nuoc A2.webp' %}" alt="Owater bình 20L">
                             </a>
                         </div>
                         <div class="grid-item-bottom">
                             <div class="product-name-out">
-                                <a href="#" title="Owater bình 20L" class="link-product">NƯỚC UỐNG KANGEN OWA TYPE A2 - PH 8.5-8.9</a>
+                                <a href="{% url 'detail' type='A2' %}" title="Owater bình 20L" class="link-product">NƯỚC UỐNG KANGEN OWA TYPE A2 - PH 8.5-8.9</a>
                             </div>
                             <span class="price">60.000đ/bình</span>
                             <button onclick="handleAddToCart(2)" class="btn-style3  btn-block">Mua ngay</button>
@@ -100,13 +102,13 @@
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="grid-item-inner">
                         <div class="grid-item-top ">
-                            <a href="#" rel="nofollow" title="Owater bình 20L">
-                                <img src="{% static '/assets/imgs/products/Binh nuoc A3.png' %}" alt="Owater bình 20L">
+                            <a href="{% url 'detail' type='A1' %}" rel="nofollow" title="Owater bình 20L">
+                                <img src="{% static '/assets/imgs/products/Binh nuoc.webp' %}" alt="Owater bình 20L">
                             </a>
                         </div>
                         <div class="grid-item-bottom">
                             <div class="product-name-out">
-                                <a href="#" title="Owater bình 20L" class="link-product">NƯỚC UỐNG KANGEN OWA TYPE A1 - pH 9.0-9.5</a>
+                                <a href="{% url 'detail' type='A1' %}" title="Owater bình 20L" class="link-product">NƯỚC UỐNG KANGEN OWA TYPE A1 - pH 9.0-9.5</a>
                             </div>
                             <!-- <span class="tip__discount">-5%</span> -->
                             <span class="price">
@@ -148,7 +150,7 @@
                             <p></p>
                             <hr>
                             <div class="text mb-3">
-                                <p >- Công dụng: Có nồng độ pH nhẹ, vị ngọt thanh mát, phù hợp cho người mới bắt đầu sử dụng nước ion kiềm.
+                                <p >- Công dụng: Có độ pH vừa, vị ngọt thanh mát, giúp trung hòa các gốc axit trong cơ thể, cân bằng pH..
                                 </p>
                                 <p > - Khuyến mãi: Mua 3 bình tặng 1 bình cùng loại trong 1 tháng đầu sử dụng.
                                 </p>
@@ -167,7 +169,7 @@
                             <p></p>
                             <hr>
                             <div class="text mb-3">
-                                <p >- Công dụng: Có nồng độ pH nhẹ, vị ngọt thanh mát, phù hợp cho người mới bắt đầu sử dụng nước ion kiềm.
+                                <p >- Công dụng: Đặc biệt tốt cho cơ thể với độ pH cao, nồng độ ion hydroxide cao, vị ngọt thanh mát, trung hòa các gốc axit có hại, tốt cho người bị axit dạ dày, gout, và các bệnh liên quan đến axit dư thừa.
                                 </p>
                                 <p > - Khuyến mãi: Mua 3 bình tặng 1 bình cùng loại trong 1 tháng đầu sử dụng.
                                 </p>
@@ -183,13 +185,13 @@
             <div class="swiper swiper-product w-[60%] relative" thumbsslider="" data-aos="fade-left">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide center-flex " role="group" aria-label="1 / 3">
-                        <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc A3.png' %}" alt="Owater">
+                        <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc A3.webp' %}" alt="Owater">
                     </div>
                     <div class="swiper-slide center-flex" role="group" aria-label="2 / 3">
-                        <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc A2.png' %}" alt="Owater">
+                        <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc A2.webp' %}" alt="Owater">
                     </div>
                     <div class="swiper-slide center-flex" role="group" aria-label="3 / 3">
-                        <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc.png' %}" alt="Owater">
+                        <img style="width: 200px; margin: auto;" src="{% static '/assets/imgs/products/Binh nuoc.webp' %}" alt="Owater">
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
@@ -203,10 +205,11 @@
 		<div class="container">
 			<div class="post-content">
 				<h1 style="text-align: center;">
-					<strong>Nước Owater - Nước khoáng thiên nhiên từ dãy núi Apls của Pháp - OWATER</strong>
+					<strong>NƯỚC UỐNG KANGEN OWA - BÍ QUYẾT TRƯỜNG THỌ CỦA NHẬT BẢN</strong>
 				</h1>
 				<p style="text-align: justify;">
-					<strong>Nước khoáng Owater được sản xuất từ dòng suối nguồn thiên nhiên núi Apls của Pháp. Owater chứa các khoáng chất chất thiên nhiên và chất điện giải có sẵn trong tự nhiên đem đến sự tươi mát, ngon, sức khỏe khi sử dụng.</strong>
+					<strong>Nước uống Kangen được tạo ra qua quá trình điện giải do người Nhật sáng tạo ra, ngày càng được nhiều người ưa chuộng nhờ vào những lợi ích sức khỏe tuyệt vời mà nó mang lại. 
+                        Với công nghệ tiên tiến được nhập khẩu từ Nhật Bản, nước uống Kangen OWA có nồng độ ion hydroxide cao, hỗ trợ sức khỏe tổng quát bằng cách giúp cơ thể loại bỏ các gốc tự do có hại. Điều này giúp ngăn ngừa quá trình lão hóa, tăng cường hệ miễn dịch và giảm nguy cơ mắc các bệnh mãn tính như tiểu đường và bệnh tim mạch.</strong>
 				</p>
 				<div style="text-align: justify;">
 					<div> &nbsp;</div>
@@ -214,14 +217,13 @@
 			</div>
 			<div class="row item-campaign no-gutters align-items-center">
 				<div class="col-12 col-lg-5 col-img">
-					<img src="{% static '/assets/imgs/banners/Anh 2.png' %}" alt="Sản phẩm của Owater">
+					<img src="{% static '/assets/imgs/banners/Anh 2.webp' %}" alt="Nước ion kiềm số 1 Việt Nam">
 				</div>
 				<div class="col-12 col-lg-7 col-content" data-aos="fade-up">
-					<p class="name-home">Sản phẩm của Owater</p>
+					<p class="name-home">Nước ion kiềm số 1 Việt Nam</p>
 					<div>
-                        <p>Nước khoáng Owater được chiết xuất từ nguồn nước tự nhiên tinh khiết, giàu khoáng chất và các yếu tố vi lượng thiết yếu. Sản phẩm này giúp cung cấp độ ẩm cho cơ thể, cải thiện hệ tiêu hóa và tăng cường sức khỏe tổng quát.</p>
-                        <p>Với độ pH lên đến 9.5, nước ion kiềm Owater giúp cân bằng độ pH trong cơ thể, hỗ trợ quá trình trao đổi chất và làm giảm nguy cơ mắc các bệnh mãn tính. Nước ion kiềm Owater là lựa chọn lý tưởng cho những ai muốn duy trì sức khỏe tốt và bảo vệ hệ tiêu hóa.</p>
-						<p style="text-align: justify;"> Với các thể tích phù hợp với nhu cầu sử dụng của bạn. Với mẫu thiết kế hiện đại, thân thiện với môi trường, tái chế lại. Đem đến nước Owater cung cấp nước cho bạn bất cứ lúc nào. Uống hàng ngày để nâng cao sức khỏe của bạn.</p>
+                        <p>Nước uống Kangen OWA được chiết xuất từ nguồn nước tự nhiên tinh khiết, giàu khoáng chất và có độ pH cao lên đến 9.5, giúp cân bằng độ pH trong cơ thể. Điều này rất quan trọng trong việc duy trì sức khỏe tổng quát, vì cơ thể thường bị axit hóa do chế độ ăn uống không lành mạnh và căng thẳng. Việc uống nước có độ pH cao giúp trung hòa axit dư thừa, cải thiện hệ tiêu hóa và tăng cường sức khỏe.</p>
+						<p style="text-align: justify;">Các nghiên cứu từ Học viện Y khoa Hoa Kỳ đã cho thấy nước ion kiềm, khi kết hợp với các nguyên tố vi lượng, có tác dụng tích cực cho sức khỏe. Nước ion kiềm giúp cải thiện chức năng của các cơ quan nội tạng, tăng cường quá trình trao đổi chất và hỗ trợ điều trị một số bệnh lý.</p>
                         <br>
                         <a href="{% url 'about' %}" class="btn-style2 my-3">Xem thêm</a>
 					</div>
@@ -229,18 +231,13 @@
 			</div>
 			<div class="row item-campaign no-gutters img-right align-items-center">
 				<div class="col-12 col-lg-5 col-img">
-					<img class="w-full" src="{% static '/assets/imgs/banners/Slide_1.jpg' %}" alt="Câu chuyện về chúng tôi">
+					<img class="w-full" src="{% static '/assets/imgs/banners/Slide_1.webp' %}" alt="Câu chuyện về chúng tôi">
 				</div>
 				<div class="col-12 col-lg-7 col-content" data-aos="fade-up">
-					<p class="name-home">Câu chuyện về chúng tôi</p>
+					<p class="name-home">Chất lượng cao, sản phẩm đa dạng</p>
 					<div>
-                        <p>Owater ra đời với sứ mệnh mang đến nguồn nước tinh khiết, an toàn và giàu khoáng chất để chăm sóc sức khỏe cộng đồng. Chúng tôi cam kết sử dụng công nghệ tiên tiến và quy trình sản xuất khắt khe nhất để mỗi sản phẩm đều đạt tiêu chuẩn quốc tế về chất lượng.</p>
-        
-                        <p>Hành Trình Khởi Nguồn: Chúng tôi bắt đầu từ một niềm đam mê với việc cung cấp nguồn nước tinh khiết từ thiên nhiên, giúp người tiêu dùng duy trì sự cân bằng sức khỏe. Với đội ngũ chuyên gia dày dạn kinh nghiệm và trang thiết bị hiện đại, Owater đã nhanh chóng khẳng định được chất lượng và uy tín trên thị trường.</p>
-                        
-                        <p >Cam Kết Của Chúng Tôi: Chất lượng và sức khỏe của khách hàng luôn là ưu tiên hàng đầu của Owater. Chúng tôi cam kết không ngừng cải tiến quy trình sản xuất, chọn lựa nguyên liệu và áp dụng công nghệ tiên tiến để đảm bảo mỗi giọt nước Owater đến tay người tiêu dùng đều hoàn hảo.</p>
-                        
-                        <p>Giá Trị Cốt Lõi: Chúng tôi tin rằng sự sáng tạo, chất lượng và trách nhiệm xã hội là những giá trị cốt lõi giúp Owater phát triển bền vững. Chúng tôi không chỉ mang đến sản phẩm chất lượng mà còn hướng tới việc tạo ra cộng đồng khỏe mạnh và ý thức bảo vệ môi trường.</p>
+                        <p>OWA cam kết đem đến cho khách hàng sản phẩm chất lượng, an toàn và hiệu quả. Chúng tôi sử dụng công nghệ tiên tiến và quy trình sản xuất khép kín để đảm bảo chất lượng kangen tốt nhất. Ngoài ra, OWA còn đáp ứng nhu cầu của khách hàng với nhiều dòng sản phẩm đa dạng và tiện lợi như nước uống, nước tinh khiết, nước ion kiềm v.v.. Chúng tôi cam kết mang đến cho khách hàng dịch vụ tốt nhất và giá cả hợp lý.</p>
+                        <p>Nếu bạn đang tìm kiếm một sản phẩm nước uống an toàn, chất lượng và hiệu quả, hãy đến với OWA. Với thương hiệu đã được khẳng định và uy tín trong lĩnh vực nước uống, OWA sẽ không làm bạn thất vọng. Hãy thử và trải nghiệm ngay sản phẩm nước uống Kangen OWA để cảm nhận sự khác biệt về sức khỏe và chất lượng cuộc sống của bạn.</p>
                         <br>
                         <a href="{% url 'about' %}" class="btn-style2 my-3">Xem thêm</a>
 					</div>
@@ -248,12 +245,12 @@
 			</div>
 			<div class="row item-campaign no-gutters align-items-center">
 				<div class="col-12 col-lg-5 col-img">
-					<img src="{% static '/assets/imgs/image_1.jpg' %}" alt="Nước của chúng tôi">
+					<img src="{% static '/assets/imgs/image_1.webp' %}" alt="Nước của chúng tôi">
 				</div>
 				<div class="col-12 col-lg-7 col-content" data-aos="fade-up">
-					<p class="name-home">Nước của chúng tôi</p>
+					<p class="name-home">Công nghệ tới từ Nhật Bản</p>
 					<div>
-						<p> Nước ion kiềm, một loại nước uống Kangen được tạo ra qua quá trình điện giải do người Nhật sáng tạo ra, ngày càng được nhiều người ưa chuộng nhờ vào những lợi ích sức khỏe tuyệt vời mà nó mang lại. Với công nghệ tiên tiến được nhập khẩu từ Nhật Bản, chúng tôi xin giới thiệu đến bạn các sản phẩm nước uống ion kiềm chất lượng cao của mình..</p>
+						<p>Tất cả các sản phẩm nước ion kiềm của chúng tôi đều được sản xuất theo tiêu chuẩn quốc tế, đảm bảo chất lượng và an toàn cho người sử dụng. Quá trình sản xuất được kiểm soát chặt chẽ từ nguồn nước đầu vào đến khi thành phẩm, đảm bảo mỗi giọt nước bạn uống đều đạt chất lượng cao nhất.</p>
                         <br>
                         <a href="{% url 'about' %}" class="btn-style2 my-3">Xem thêm</a>
 					</div>
@@ -261,7 +258,7 @@
 			</div>
 			<div class="row item-campaign no-gutters img-right align-items-center">
 				<div class="col-12 col-lg-5 col-img">
-					<img src="{% static '/assets/imgs/image_2.jpg' %}" alt="Công Nghệ Vi Lượng Tăng Cường Sức Khỏe">
+					<img src="{% static '/assets/imgs/image_2.webp' %}" alt="Công Nghệ Vi Lượng Tăng Cường Sức Khỏe">
 				</div>
 				<div class="col-12 col-lg-7 col-content" data-aos="fade-up">
 					<p class="name-home">Công Nghệ Vi Lượng Tăng Cường Sức Khỏe</p>
@@ -278,7 +275,7 @@
 			</div>
 			<div class="row item-campaign no-gutters align-items-center">
 				<div class="col-12 col-lg-5 col-img">
-					<img src="{% static '/assets/imgs/image_3.jpeg' %}" alt="Bảo vệ nguồn nước">
+					<img src="{% static '/assets/imgs/baovenguonnuoc.webp' %}" alt="Bảo vệ nguồn nước">
 				</div>
 				<div class="col-12 col-lg-7 col-content" data-aos="fade-up">
 					<p class="name-home">Bảo vệ nguồn nước</p>
@@ -293,16 +290,16 @@
 			</div>
             <div class="nxMargin post-content">
                 <h1>Nước uống i-on kiềm OWA HIGH OXYGEN - Công nghệ Nhật Bản</h1>
-                <h2>Sản Xuất Theo Tiêu Chuẩn Quốc Tế</h2>
+                <h2>Sản xuất theo tiêu chuẩn quốc tế</h2>
                 <p>Tất cả các sản phẩm nước ion kiềm của chúng tôi đều được sản xuất theo tiêu chuẩn quốc tế, đảm bảo chất lượng và an toàn cho người sử dụng. Quá trình sản xuất được kiểm soát chặt chẽ từ nguồn nước đầu vào đến khi thành phẩm, đảm bảo mỗi giọt nước bạn uống đều đạt chất lượng cao nhất.</p>
                 
-                <h2>Độ pH Cao Lên Đến 9.5</h2>
+                <h2>Độ pH cao lên đến 9.5</h2>
                 <p>Nước ion kiềm có độ pH cao lên đến 9.5, giúp cân bằng độ pH trong cơ thể. Điều này rất quan trọng trong việc duy trì sức khỏe tổng quát, vì cơ thể thường bị axit hóa do chế độ ăn uống không lành mạnh và căng thẳng. Việc uống nước có độ pH cao giúp trung hòa axit dư thừa, cải thiện hệ tiêu hóa và tăng cường sức khỏe.</p>
                 
-                <h2>Nồng Độ i-on Hydroxide Cao</h2>
+                <h2>Nồng độ i-on Hydroxide cao</h2>
                 <p>Nước ion kiềm có nồng độ ion hydroxide cao, hỗ trợ sức khỏe tổng quát bằng cách giúp cơ thể loại bỏ các gốc tự do có hại. Điều này giúp ngăn ngừa quá trình lão hóa, tăng cường hệ miễn dịch và giảm nguy cơ mắc các bệnh mãn tính như tiểu đường và bệnh tim mạch.</p>
                 
-                <h2>Nghiên Cứu Từ Học Viện Y Khoa Hoa Kỳ</h2>
+                <h2>Nghiên cứu từ học viện y khoa Hoa Kỳ</h2>
                 <p>Các nghiên cứu từ Học viện Y khoa Hoa Kỳ đã cho thấy nước ion kiềm, khi kết hợp với các nguyên tố vi lượng, có tác dụng tích cực cho sức khỏe. Nước ion kiềm giúp cải thiện chức năng của các cơ quan nội tạng, tăng cường quá trình trao đổi chất và hỗ trợ điều trị một số bệnh lý.</p>
                 <p style="text-align: justify;"> Nước khoáng Owa chứa các chất điện giải tự nhiên, góp phần tạo nên hương vị đặc trưng và dễ chịu </p>
                 <table border="0" cellpadding="0" style="width: 100%">
@@ -343,7 +340,7 @@
                                 <p style="text-align: justify;"> K</p>
                             </td>
                             <td>
-                                <p style="text-align: justify;"> 1</p>
+                                <p style="text-align: justify;"> 2</p>
                             </td>
                         </tr>
                         <tr>
@@ -354,7 +351,7 @@
                                 <p style="text-align: justify;"> Mg</p>
                             </td>
                             <td>
-                                <p style="text-align: justify;"> 26</p>
+                                <p style="text-align: justify;"> 40</p>
                             </td>
                         </tr>
                         <tr>
@@ -387,7 +384,7 @@
                                 <p style="text-align: justify;"> Cl</p>
                             </td>
                             <td>
-                                <p style="text-align: justify;"> 10</p>
+                                <p style="text-align: justify;"> 0.7</p>
                             </td>
                         </tr>
                         <tr>
@@ -398,7 +395,7 @@
                                 <p style="text-align: justify;"> NO3</p>
                             </td>
                             <td>
-                                <p style="text-align: justify;"> 3,8</p>
+                                <p style="text-align: justify;"> 5</p>
                             </td>
                         </tr>
                         <tr>
@@ -409,7 +406,7 @@
                                 <p style="text-align: justify;"> SO2</p>
                             </td>
                             <td>
-                                <p style="text-align: justify;"> 14</p>
+                                <p style="text-align: justify;"> 10</p>
                             </td>
                         </tr>
                         <tr>
@@ -420,7 +417,7 @@
                                 <p style="text-align: justify;"> SO4</p>
                             </td>
                             <td>
-                                <p style="text-align: justify;"> 15</p>
+                                <p style="text-align: justify;"> 3</p>
                             </td>
                         </tr>
                     </tbody>
@@ -430,42 +427,15 @@
                     <li><strong>Nguồn gốc tự nhiên:</strong> Được lấy từ mạch nước ngầm sâu, giữ độ tinh khiết tự nhiên.</li>
                     <li><strong>Hàm lượng khoáng chất:</strong> Bổ sung các vi chất thiết yếu như canxi, magie, natri, và kali.</li>
                     <li><strong>Độ tinh khiết cao:</strong> Quy trình đóng chai hiện đại, giữ nguyên độ tinh khiết.</li>
-                    <li><strong>pH ổn định:</strong> pH tự nhiên từ 6.5 - 8.5, hỗ trợ cân bằng axit-kiềm.</li>
+                    <li><strong>pH ổn định:</strong> pH tự nhiên từ 8.0 - 9.5, hỗ trợ cân bằng axit-kiềm.</li>
                     <li><strong>Không xử lý hóa học:</strong> Giữ nguyên các khoáng chất tự nhiên từ nguồn nước.</li>
                     <li><strong>Hỗ trợ sức khỏe:</strong> Tăng cường sức đề kháng và bổ sung năng lượng mỗi ngày.</li>
                 </ul>
-                <h2 style="text-align: justify;">
-                    <span id="cke_bm_460S" style="display: none;">&nbsp;</span>
-                    <strong>Nước khoáng Owa đến từ đâu</strong>
-                </h2>
-                <ul>
-                    <li style="text-align: justify;">Nước khoáng Owa được khai thác từ các mạch nước ngầm sâu trong lòng đất, nơi được bảo vệ tự nhiên bởi các tầng địa chất lâu năm. Những khu vực khai thác này thường nằm ở các vùng núi đá vôi hoặc những khu vực địa chất đặc thù, nơi nước được bổ sung khoáng chất tự nhiên.</li>
-                    <li style="text-align: justify;">Được đóng chai tại nhà máy đạt tiêu chuẩn, nước khoáng Owa cam kết giữ trọn vẹn sự tinh khiết và giàu khoáng chất từ nguồn thiên nhiên.</li>
-                </ul>
-
-                <h2 style="text-align: justify;">
-                    <strong>Nước Owa được tạo ra như thế nào?</strong>
-                </h2>
-                <p>Nước khoáng Owa được tạo ra qua một quy trình khép kín, đảm bảo giữ nguyên sự tinh khiết và các khoáng chất tự nhiên từ nguồn nước. Dưới đây là các bước chính:</p>
-                <ul>
-                    <li><strong>Khai thác từ mạch nước ngầm:</strong> Nước được lấy từ các mạch nước ngầm sâu trong lòng đất, nơi được bảo vệ tự nhiên và giàu khoáng chất.</li>
-                    <li><strong>Lọc cơ học:</strong> Nước được lọc qua các lớp cát và than hoạt tính để loại bỏ tạp chất lớn.</li>
-                    <li><strong>Lọc vi sinh:</strong> Sử dụng công nghệ lọc tinh và tiệt trùng bằng tia cực tím (UV) hoặc ozone để loại bỏ vi khuẩn và vi sinh vật.</li>
-                    <li><strong>Đóng chai khép kín:</strong> Quy trình đóng chai được thực hiện trong môi trường vô trùng để giữ nguyên chất lượng nước.</li>
-                </ul>
-                <p>Quy trình sản xuất nghiêm ngặt đảm bảo nước khoáng Owa luôn tươi mới và an toàn cho sức khỏe.</p>
-                <h2 style="text-align: justify;">
-                    <strong>Owa có nghĩa là gì?</strong>
-                </h2>
-                <p style="text-align: justify;"> Owa không cố gắng ẩn sau một cái tên phức tạp, hoa mỹ nào đó. Chúng tôi tự gọi mình là Owa, bởi vì gợi lên cảm giác tươi mới, tinh khiết hoặc gần gũi với thiên nhiên. </p>
             </div>
 		</div>
 	</div>
 
 </main>
-<script>
-        
-</script>
 <script> 
     document.addEventListener('DOMContentLoaded', () => {
 

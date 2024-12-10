@@ -1,0 +1,27 @@
+<ifmodule mod_deflate.c>
+  Addoutputfilterbytype DEFLATE text/html
+  Addoutputfilterbytype DEFLATE text/css
+  Addoutputfilterbytype DEFLATE text/javascript
+  Addoutputfilterbytype DEFLATE text/xml
+  Addoutputfilterbytype DEFLATE text/plain
+  Addoutputfilterbytype DEFLATE image/x-icon
+  Addoutputfilterbytype DEFLATE image/svg+xml
+  Addoutputfilterbytype DEFLATE application/rss+xml
+  Addoutputfilterbytype DEFLATE application/javascript
+  Addoutputfilterbytype DEFLATE application/x-javascript
+  Addoutputfilterbytype DEFLATE application/xml
+  Addoutputfilterbytype DEFLATE application/xhtml+xml
+  Addoutputfilterbytype DEFLATE application/x-font 
+  Addoutputfilterbytype DEFLATE application/x-font-truetype 
+  Addoutputfilterbytype DEFLATE application/x-font-ttf 
+  Addoutputfilterbytype DEFLATE application/x-font-otf
+  Addoutputfilterbytype DEFLATE application/x-font-opentype
+  Addoutputfilterbytype DEFLATE application/vnd.ms-fontobject
+  Addoutputfilterbytype DEFLATE font/ttf
+  Addoutputfilterbytype DEFLATE font/otf
+  Addoutputfilterbytype DEFLATE font/opentype
+# For Older Browsers Which Can't Handle Compression
+  Browsermatch ^Mozilla/4 gzip-only-text/html
+  Browsermatch ^Mozilla/4.0[678] no-gzip
+  Browsermatch bmsie !No-gzip !Gzip-only-text/html
+</ifmodule>

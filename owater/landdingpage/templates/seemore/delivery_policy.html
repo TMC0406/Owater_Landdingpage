@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% load static %}
+{% block main-content %}
+<main>
+    <div class="nxPaddingPage">
+        <h1 class="text-center page-title">Chính sách giao hàng</h1>
+        <div class="container ">
+            <div class="row item-campaign no-gutters align-items-center">		
+				<div class="col-12 col-lg-7 col-content" >
+                    <h2>Chính sách giao hàng của Owa</h2>
+                    <p>Khi quý khách hàng đặt hàng <a href="{% url 'home' %}"><span style="color:blue;"><strong>Nước uống Kangen OWA</strong></span></a>, có chính sach giao hàng như sau:</p>
+                    <ul >
+                        <li>
+                            Miễn phí giao hàng với đơn hàng tối thiểu 3 bình.</li>
+                        <li>
+                            Đặt hàng 1 bình hàng có tính phí giao tùy theo vị trí bạn đặt hàng. Cụ thể liên hệ ngay Owa 1900 8942 để tư vấn.</li>
+                    </ul>
+                    <h3>
+                        Các cách đặt hàng</h3>
+                    <ul>
+                        <li>
+                            Đặt hàng qua zalo 096 3128 481.</li>
+                        <li>
+                        <li>
+                            Tới địa chỉ của chúng tôi đặt hàng.</li>
+                    </ul>
+                    <p>
+                        Nước uống Kangen OWA được nghiên cứu và phát triển bởi công ty TNHH OWA Việt Nam, từ nguồn nước tự nhiên tươi mát kết hợp với công nghệ nâng cao Oxy trong nước.</p>
+
+				</div>
+                <div class="col-12 col-lg-5 col-img">
+                    <img src="{% static '/assets/imgs/banners/Untitled-2.webp' %}" alt=" image">
+				</div>
+			</div>
+        </div>
+    </div>
+</main>
+{% endblock main-content %}
