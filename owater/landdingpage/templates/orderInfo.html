@@ -75,7 +75,7 @@
                                 <tbody id="list-product">
                                     <tr>
                                         <td>
-                                            <img src="{% static '/assets/imgs/products/Binh nuoc A3.webp' %}" width="50" alt="Evian chai nhựa 330ml (Thùng / 24 Chai)">
+                                            <img  loading="lazy"  src="{% static '/assets/imgs/products/Binh nuoc A3.webp' %}" width="50" alt="Evian chai nhựa 330ml (Thùng / 24 Chai)">
                                         </td>
                                         <td>OWA HIGH OXYGEN TYPE A1 × 1</td>
                                         <td class="link-red text-right">
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let row = `
                     <tr style="background-color:rgba(0,0,0,0.05); ">
                         <td>
-                            <img src="${item.imgSrc}" style="width:50px" alt="ơwater">
+                            <img  loading="lazy"  src="${item.imgSrc}" style="width:50px" alt="ơwater">
                         </td>
                         <td>${item.name} × ${item.quantity}</td>
                         <td class="link-red text-right">

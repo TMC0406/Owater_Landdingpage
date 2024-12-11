@@ -41,7 +41,7 @@ db = firestore.Client.from_service_account_json(FIREBASE_CREDENTIALS_PATH)
 SECRET_KEY = 'django-insecure-7al%*z63qv=#nw^$)#&8o(_q%kssn6rej_ln9sf=j_j$7d2@c#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -66,7 +66,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'django.middleware.gzip.GZipMiddleware',
 ]
 
 ROOT_URLCONF = 'owater.urls'
@@ -78,7 +77,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.2024',
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
