@@ -11,22 +11,26 @@ db = firestore.client()
 def orderProducts(request): 
     statusreturn = "false"
     if request.method == 'POST':
-        print("request.POST",request.POST)
         form = formInfo(request.POST)
-        if form.is_valid():
-            dataRequest = formInfoData(form)
-            print("dataRequest",dataRequest)
-            idorder = generate_short_id()
+        if not form.is_valid():
+            return JsonResponse({'statusreturn': statusreturn, 'messageresponse': 'Lỗi form'})
+        dataRequest = formInfoData(form)
 
-            dataRequest.update({
-                "id" : idorder,
-                "status" : "waiting"
-            })
-            doc_ref = db.collection("orders").document(idorder)
-            doc_ref.set(dataRequest)
-            statusreturn = "true"
-            return JsonResponse({'id':idorder,'statusreturn': statusreturn, 'messageresponse': 'Đặt hàng thành công'})
-        return JsonResponse({'statusreturn': statusreturn, 'messageresponse': 'Lỗi form'})
+        idorder = generate_short_id()
+
+        dataRequest.update({
+            "id" : idorder,
+            "status" : "waiting"
+        })
+        
+        print("dataRequest",dataRequest)
+        order_ref = db.collection('orders').stream()
+        doc_ref = db.collection("orders").document(idorder)
+        doc_ref.set(dataRequest, merge = True)
+        statusreturn = "true"
+
+        return JsonResponse({'id':idorder,'statusreturn': statusreturn, 'messageresponse': 'Đặt hàng thành công'})
+        
     return JsonResponse({'statusreturn': statusreturn, 'messageresponse': 'Lỗi phương thức'})
 def formInfoData (form):
     current_date = datetime.now(vietnam_tz)

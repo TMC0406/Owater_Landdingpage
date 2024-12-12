@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+from datetime import timedelta
 import os
 from pathlib import Path
 import firebase_admin
@@ -20,20 +21,58 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 #Firebase Storage GKSOFTDATA
 
-FIREBASE_CREDENTIALS_PATH = "./owalandingpage-firebase-adminsdk-tkzmr-486a4cf393.json"
+FIREBASE_CREDENTIALS_PATH = "./owalandingpage-firebase-adminsdk-tkzmr-f9d0d56708.json"
 FIREBASE_DATABASE_URL = "https://owalandingpage-default-rtdb.firebaseio.com/"
 FIREBASE_BUCKET_NAME = "owalandingpage.firebasestorage.app"
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'W0gttdws92k4jy4slVVwiHk5dUK1BgHK1pwKM2U5'
 # Cấu hình Firebase Admin SDK
-cred = credentials.Certificate(FIREBASE_CREDENTIALS_PATH)
-firebase_admin.initialize_app(cred, {
-    "databaseURL" : FIREBASE_DATABASE_URL,
-    "storageBucket": FIREBASE_BUCKET_NAME
-}) 
 
-# Kết nối tới Firestore
-db = firestore.Client.from_service_account_json(FIREBASE_CREDENTIALS_PATH)
+try:
+    # Đường dẫn đến file credentials
+    cred = credentials.Certificate(FIREBASE_CREDENTIALS_PATH)
+    
+    # Khởi tạo Firebase
+    firebase_admin.initialize_app(cred, {
+        "databaseURL" : FIREBASE_DATABASE_URL,
+        "storageBucket": FIREBASE_BUCKET_NAME
+    }) 
+    print("Firebase configuration is valid")
+except Exception as e:
+    print(False, f"Firebase configuration error: {str(e)}")
 
+# Lấy tham chiếu đến Firestore
+db = firestore.client()
+    
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'UPDATE_LAST_LOGIN': False,
 
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'AUDIENCE': None,
+    'ISSUER': None,
+
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
+
+    'JTI_CLAIM': 'jti',
+}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_TIMEOUT': 300  # 5 minutes
+}
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -68,6 +107,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.owater.vn',
+    'https://imvs.owa.vn',
+]
 ROOT_URLCONF = 'owater.urls'
 
 TEMPLATES = [
@@ -99,7 +142,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -123,11 +165,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
