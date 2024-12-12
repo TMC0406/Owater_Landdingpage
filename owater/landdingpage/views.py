@@ -175,7 +175,19 @@ def orderInfo(request):
         "metaData" : metaData
     })
 
-
+def Detail(request):
+    formInfoData = formInfo()
+    metaData = {
+        "page_description" : "OWA Vietnam Co., Ltd - Chuyên cung cấp nước uống tinh khiết, đảm bảo chất lượng và an toàn cho sức khỏe. Sự lựa chọn hàng đầu cho gia đình và doanh nghiệp.",
+        "page_og_url" : "https://www.owa.vn/",
+        "page_keywords" : "nước kangen, nước owa, nước tốt cho sức khỏe,kangen, owa, owarte , i-on kiềm ,  OWA HIGH OXYGEN, Độ pH cao lên đến 9.5, Nồng độ i-on Hydroxide cao, Nguồn gốc tự nhiên, Độ tinh khiết cao,pH ổn định, Không xử lý hóa học, Hỗ trợ sức khỏe",
+        "page_title" : "Thông tin đặt hàng",
+        "page_image" : "https://www.owa.vn/static/assets/imgs/banners/Banner_Social.webp",
+    }
+    return render(request, 'orderInfo.html',{
+        'formInfoData': formInfoData,
+        "metaData" : metaData
+    })Detail
 
 
 
