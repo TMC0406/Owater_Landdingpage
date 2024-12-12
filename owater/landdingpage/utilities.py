@@ -24,7 +24,7 @@ def orderProducts(request):
         })
         
         print("dataRequest",dataRequest)
-        order_ref = db.collection('orders').stream()
+        # order_ref = db.collection('orders').stream()
         doc_ref = db.collection("orders").document(idorder)
         doc_ref.set(dataRequest, merge = True)
         statusreturn = "true"
