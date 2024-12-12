@@ -112,19 +112,32 @@ def listOrder(request):
     order_ref = db.collection('orders').stream()
     for item in order_ref :
         data = item.to_dict()
+        id = data['id']
+        dataOder =[]
+        product_ref = db.collection("orders").document(id).collection("products").stream()
+        for itemproduct in product_ref :
+            dataOder.append(itemproduct.to_dict())
         data.update({
-            "dataOder" : json.loads(data['dataOder']) ,
+            "dataOder" : dataOder ,
             })
         print (data)
         listOrder.append(data)
     return render(request, 'listOrder.html',{
         "listOrder" : listOrder,
     })
+
 def orderSuccess(request ,idorder):
     print("idorder", idorder)
     if not idorder : 
         return 
     requestData = db.collection('orders').document(idorder).get().to_dict()
+    product_ref = db.collection("orders").document(idorder).collection("products").stream()
+    dataOder = []
+    for itemproduct in product_ref :
+        dataOder.append(itemproduct.to_dict())
+    requestData.update({
+        "dataOder" : dataOder ,
+        })
     print("requestData",requestData)
     metaData = {
         "page_description" : "OWA Vietnam Co., Ltd - Chuyên cung cấp nước uống tinh khiết, đảm bảo chất lượng và an toàn cho sức khỏe. Sự lựa chọn hàng đầu cho gia đình và doanh nghiệp.",

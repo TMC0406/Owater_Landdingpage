@@ -43,7 +43,7 @@
                                     </div>
                                     {% endfor %}
                                 </td>
-                                <td > {{ item.total }}đ</td>
+                                <td  > <span class="total">{{ item.total}}</span>đ</td>
                           </tr>
                         {% endfor %}
                     </tbody>
@@ -65,5 +65,14 @@
             },
         {% endfor %}
     ];
+    document.addEventListener('DOMContentLoaded', () => {
+    let spanTotals = document.querySelectorAll(".total");
+    spanTotals.forEach(span => {
+        let number = parseFloat(span.textContent.replace(/[^0-9.-]/g, '')); // Loại bỏ ký tự không phải số
+        if (!isNaN(number)) {
+            span.textContent = number.toLocaleString('vi-VN'); // Định dạng số
+        }
+    });
+});
 </script>
 {% endblock main-content %}

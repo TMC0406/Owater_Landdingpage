@@ -7,26 +7,39 @@ import pytz
 vietnam_tz = pytz.timezone('Asia/Ho_Chi_Minh')
 from firebase_admin import firestore
 db = firestore.client()
-
+import json
 def orderProducts(request): 
     statusreturn = "false"
     if request.method == 'POST':
         form = formInfo(request.POST)
         if not form.is_valid():
             return JsonResponse({'statusreturn': statusreturn, 'messageresponse': 'Lỗi form'})
-        dataRequest = formInfoData(form)
+        data = formInfoData(form)
 
         idorder = generate_short_id()
 
-        dataRequest.update({
+        dataRequest = {
             "id" : idorder,
-            "status" : "waiting"
-        })
+            "status" : "waiting",
+            'username': data['username'],
+            'phone': data['phone'],
+            'address': data['address'],
+            'province': data['province'],
+            'email': data['email'],
+            'note': data['note'],
+            'createtime': data['createtime'],
+            'total': data['total'],
+        }
         
         print("dataRequest",dataRequest)
         # order_ref = db.collection('orders').stream()
         doc_ref = db.collection("orders").document(idorder)
         doc_ref.set(dataRequest, merge = True)
+        dataOder = json.loads(data['dataOder'])
+        print("dataOder",dataOder)
+        for item in dataOder:
+             item['id'] = generate_short_id()
+             db.collection("orders").document(idorder).collection("products").document(item['id']).set(item)
         statusreturn = "true"
 
         return JsonResponse({'id':idorder,'statusreturn': statusreturn, 'messageresponse': 'Đặt hàng thành công'})

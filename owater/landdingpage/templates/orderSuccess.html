@@ -90,14 +90,14 @@
 </main>
 <script>
     let requestData = {
-        id: '{{ requestData.id }}',
+        id: '{{ requestData.id }}' ,
         status: '{{ requestData.status }}',
         createtime: '{{ requestData.createtime }}',
         total: '{{ requestData.total }}',
         address: '{{ requestData.address }}',
         phone: '{{ requestData.phone }}',
         note: '{{ requestData.note }}',
-        dataOder: {{ requestData.dataOder|safe }}
+        dataOder: {% if requestData.dataOder %}{{ requestData.dataOder|safe }}{% else %}[]{% endif %},
 
     }
     document.addEventListener('DOMContentLoaded', () => {   
