@@ -175,8 +175,19 @@ def orderInfo(request):
         "metaData" : metaData
     })
 
-def Detail(request):
-    formInfoData = formInfo()
+def detailOrder(request,idorder):
+    print("idorder", idorder)
+    if not idorder : 
+        return 
+    requestData = db.collection('orders').document(idorder).get().to_dict()
+    product_ref = db.collection("orders").document(idorder).collection("products").stream()
+    dataOder = []
+    for itemproduct in product_ref :
+        dataOder.append(itemproduct.to_dict())
+    requestData.update({
+        "dataOder" : dataOder ,
+        })
+    print("requestData",requestData)
     metaData = {
         "page_description" : "OWA Vietnam Co., Ltd - Chuyên cung cấp nước uống tinh khiết, đảm bảo chất lượng và an toàn cho sức khỏe. Sự lựa chọn hàng đầu cho gia đình và doanh nghiệp.",
         "page_og_url" : "https://www.owa.vn/",
@@ -184,10 +195,10 @@ def Detail(request):
         "page_title" : "Thông tin đặt hàng",
         "page_image" : "https://www.owa.vn/static/assets/imgs/banners/Banner_Social.webp",
     }
-    return render(request, 'orderInfo.html',{
-        'formInfoData': formInfoData,
-        "metaData" : metaData
-    })Detail
+    return render(request, 'detailOrder.html',{
+        "metaData" : metaData,
+        "requestData" :requestData
+    })
 
 
 

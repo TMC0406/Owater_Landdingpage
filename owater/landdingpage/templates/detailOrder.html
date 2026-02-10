@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+{% load static %}
+{% block main-content %}
+<main>
+    <div class="nxPaddingPage">
+        <div class="container">
+            <h1 class="text-center page-title">Thông tin đơn hàng</h1>
+            <div style="background-color: aliceblue; padding: 20px; border-radius: 10px" class="">
+                <ul class="ul-order-status">
+                    <li>Mã:&nbsp; <strong>{{requestData.id}}</strong>
+                    </li>
+                    <li>Trạng thái:&nbsp; <strong>
+                            <strong class="">
+                                {% if requestData.status == "waiting" %}
+                                Đang chờ xác nhận
+                                {% elif requestData.status == "processing" %}
+                                Đang xử lý
+                                {% elif requestData.status == "shipping" %}
+                                Đang giao hàng
+                                {% endif %}
+                            </strong>
+                        </strong>
+                    </li>
+                    <li>Đặt hàng lúc:&nbsp; <strong>{{requestData.createtime}}</strong>
+                    </li>
+                    <li>Loại / số lượng:
+                        {% for product in requestData.dataOder %}
+                            <span>{{ product.type }} : {{ product.quantity }} bình </span> ,
+                        {% endfor %}
+                    </li>
+                    <li>Tổng tiền:&nbsp; <strong><span class="total">{{ requestData.total}}</span>đ</strong>
+                    </li>
+                    <li>Họ và tên:&nbsp; <strong>{{requestData.username}}</strong>
+                    </li>
+                    <li>Địa chỉ:&nbsp; <strong>{{requestData.address}}</strong>
+                    </li>
+                    <li>Số điện thoại:&nbsp; <strong>{{requestData.phone}}</strong>
+                    </li>
+                    <li>
+                        Ghi chú đơn hàng:&nbsp;<strong>{{requestData.note}}</strong>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    let spanTotals = document.querySelectorAll(".total");
+    spanTotals.forEach(span => {
+        let number = parseFloat(span.textContent.replace(/[^0-9.-]/g, '')); // Loại bỏ ký tự không phải số
+        if (!isNaN(number)) {
+            span.textContent = number.toLocaleString('vi-VN'); // Định dạng số
+        }
+    });
+});
+</script>
+{% endblock main-content %}
